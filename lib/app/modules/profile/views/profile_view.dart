@@ -175,9 +175,41 @@ class ProfileView extends GetView<ProfileController> {
                         ),
                       )),
 
-                // menu [posts, bookings, wallet, logout]
+                // menu [edit profile ,posts, bookings, wallet, logout]
                 const SizedBox(
                   height: 20,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.EDIT_PROFILE);
+                  },
+                  child: const CustomCard(
+                    height: 50,
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.edit,
+                          color: kTextColor,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          'Edit Profile',
+                          style: TextStyle(
+                            color: kTextColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 const CustomCard(
                   height: 50,

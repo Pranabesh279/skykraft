@@ -19,6 +19,7 @@ abstract class Routes {
   static const BOOKING_DETAILS = _Paths.BOOKING_DETAILS;
   static const ADDRESS_INPUT = _Paths.ADDRESS_INPUT;
   static const BOOKING_LIST = _Paths.BOOKING_LIST;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
 }
 
 abstract class _Paths {
@@ -40,4 +41,5 @@ abstract class _Paths {
   static const BOOKING_DETAILS = '/booking-details';
   static const ADDRESS_INPUT = '/address-input';
   static const BOOKING_LIST = '/booking-list';
+  static const EDIT_PROFILE = '/edit-profile';
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:skycraft/app/modules/booking_list/views/booking_segment_controll.dart';
+
 import 'package:skycraft/app/modules/booking_list/widgets/booking_card.dart';
 
 import 'package:super_cupertino_navigation_bar/super_cupertino_navigation_bar.dart';
@@ -55,17 +55,21 @@ class BookingListView extends GetView<BookingListController> {
           ),
         ),
         body: Obx(
-          () => ListView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: controller.bookings.length ?? 0,
-            itemBuilder: (context, index) {
-              final booking = controller.bookings[index];
-              return BookingCard(
-                booking: booking,
-                curentUserRole: controller.curentUserRole,
-              );
-            },
-          ),
+          () => controller.bookings.isEmpty
+              ? const Center(
+                  child: Text('No Bookings'),
+                )
+              : ListView.builder(
+                  padding: const EdgeInsets.all(8),
+                  itemCount: controller.bookings.length ?? 0,
+                  itemBuilder: (context, index) {
+                    final booking = controller.bookings[index];
+                    return BookingCard(
+                      booking: booking,
+                      curentUserRole: controller.curentUserRole,
+                    );
+                  },
+                ),
         ),
       ),
     );

@@ -112,9 +112,16 @@ class AuthProvider extends GetxService {
   Future<bool> deleteUser() async {
     try {
       String uid = _auth.currentUser!.uid;
-      await _auth.signOut();
-      await _auth.currentUser!.delete();
       await _firestore.collection('users').doc(uid).delete();
+
+      try {
+        await _auth.currentUser!
+            .delete()
+            .whenComplete(() => Get.offAllNamed(AppPages.INITIAL));
+      } catch (e) {
+        log('Error deleting user', name: 'Auth');
+      }
+
       return true;
     } catch (err) {
       return false;
@@ -187,5 +194,10 @@ class AuthProvider extends GetxService {
       if (!event.exists) return null;
       return UserModel.fromSnap(event);
     });
+  }
+
+  Future updateUser(String uid, {required Map<String, dynamic> data}) async {
+    await _firestore.collection('users').doc(uid).update(data);
+    userModel.value = await getUserDetails(uid);
   }
 }

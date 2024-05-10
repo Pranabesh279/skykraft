@@ -9,6 +9,7 @@ class EmailTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final VoidCallback onTap;
+  final bool? enabled;
   const EmailTextField({
     super.key,
     required this.name,
@@ -16,11 +17,13 @@ class EmailTextField extends StatelessWidget {
     this.controller,
     required this.onTap,
     this.validator,
+    this.enabled,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: enabled,
       controller: controller,
       validator: validator ??
           (value) {

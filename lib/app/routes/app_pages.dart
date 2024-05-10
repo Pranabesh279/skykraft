@@ -16,6 +16,8 @@ import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/discover/bindings/discover_binding.dart';
 import '../modules/discover/views/discover_view.dart';
+import '../modules/edit_profile/bindings/edit_profile_binding.dart';
+import '../modules/edit_profile/views/edit_profile_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/email_view.dart';
 import '../modules/permissions/bindings/permissions_binding.dart';
@@ -100,6 +102,11 @@ class AppPages {
       name: _Paths.BOOKING_LIST,
       page: () => const BookingListView(),
       binding: BookingListBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
     ),
   ];
 }
