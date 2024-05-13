@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:skycraft/app/modules/home/bindings/home_binding.dart';
 import 'package:skycraft/app/modules/home/controllers/home_controller.dart';
 import 'package:skycraft/app/modules/profile/controllers/profile_controller.dart';
 

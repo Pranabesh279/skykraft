@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/booking_details_controller.dart';
 
 class BookingDetailsView extends GetView<BookingDetailsController> {
-  const BookingDetailsView({Key? key}) : super(key: key);
+  const BookingDetailsView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

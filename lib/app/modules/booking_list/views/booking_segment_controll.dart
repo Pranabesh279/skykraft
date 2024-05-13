@@ -1,7 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:skycraft/app/constants/theme_data.dart';
 
 class BookingSegmentedControl extends StatefulWidget {
   static const String routeName = 'cupertino/segmented_control';

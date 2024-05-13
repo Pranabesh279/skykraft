@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/activity_controller.dart';
 
 class ActivityView extends GetView<ActivityController> {
-  const ActivityView({Key? key}) : super(key: key);
+  const ActivityView({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

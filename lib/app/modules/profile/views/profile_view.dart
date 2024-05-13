@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/constants.dart';
@@ -211,33 +208,33 @@ class ProfileView extends GetView<ProfileController> {
                 const SizedBox(
                   height: 10,
                 ),
-                const CustomCard(
-                  height: 50,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.post_add,
-                        color: kTextColor,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Posts',
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // const CustomCard(
+                //   height: 50,
+                //   margin: EdgeInsets.symmetric(horizontal: 10),
+                //   padding: EdgeInsets.symmetric(horizontal: 10),
+                //   child: Row(
+                //     children: [
+                //       Icon(
+                //         Icons.post_add,
+                //         color: kTextColor,
+                //       ),
+                //       SizedBox(
+                //         width: 10,
+                //       ),
+                //       Text(
+                //         'Posts',
+                //         style: TextStyle(
+                //           color: kTextColor,
+                //           fontSize: 16,
+                //           fontWeight: FontWeight.w500,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
                 GestureDetector(
                   onTap: () {
                     Get.toNamed(Routes.BOOKING_LIST);
@@ -267,34 +264,34 @@ class ProfileView extends GetView<ProfileController> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
 
-                const CustomCard(
-                  height: 50,
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.account_balance_wallet_outlined,
-                        color: kTextColor,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Wallet',
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // const CustomCard(
+                //   height: 50,
+                //   margin: EdgeInsets.symmetric(horizontal: 10),
+                //   padding: EdgeInsets.symmetric(horizontal: 10),
+                //   child: Row(
+                //     children: [
+                //       Icon(
+                //         Icons.account_balance_wallet_outlined,
+                //         color: kTextColor,
+                //       ),
+                //       SizedBox(
+                //         width: 10,
+                //       ),
+                //       Text(
+                //         'Wallet',
+                //         style: TextStyle(
+                //           color: kTextColor,
+                //           fontSize: 16,
+                //           fontWeight: FontWeight.w500,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 // logout in red
                 const SizedBox(
                   height: 10,

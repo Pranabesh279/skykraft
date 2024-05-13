@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/discover_controller.dart';
 
 class DiscoverView extends GetView<DiscoverController> {
-  const DiscoverView({Key? key}) : super(key: key);
+  const DiscoverView({super.key});
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -136,6 +135,7 @@ class BioView extends GetView<BioController> {
                           // follow button
                           Expanded(
                             child: GradientButton(
+                              disable: true,
                               onPressed: () {},
                               child: const Text('Connect',
                                   style: TextStyle(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -7,7 +6,6 @@ import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/modules/home/views/home_view.dart';
 import 'package:skycraft/app/modules/profile/views/profile_view.dart';
 import 'package:skycraft/app/widgets/custom_tab_.dart';
-import 'package:super_cupertino_navigation_bar/super_cupertino_navigation_bar.dart';
 
 import '../controllers/dashboard_controller.dart';
 

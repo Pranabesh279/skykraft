@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:skycraft/app/models/addresss_data.dart';
 import 'package:skycraft/app/widgets/buttons/gradient_button.dart';
 import 'package:skycraft/app/widgets/googlemap_cordinate_picker.dart';
-import 'package:super_cupertino_navigation_bar/super_cupertino_navigation_bar.dart';
 
 import '../controllers/address_input_controller.dart';
 
@@ -51,6 +48,7 @@ class AddressInputView extends GetView<AddressInputController> {
             )),
       ),
       body: Container(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
         child: Column(
           children: [
             Expanded(

@@ -21,6 +21,8 @@ class HomeView extends GetView<HomeController> {
               () => GoogleMap(
                 zoomControlsEnabled: false,
                 mapToolbarEnabled: false,
+                myLocationButtonEnabled: false,
+                myLocationEnabled: false,
                 mapType: MapType.normal,
                 initialCameraPosition: controller.kInitialPosition.value,
                 indoorViewEnabled: true,
