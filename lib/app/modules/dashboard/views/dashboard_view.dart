@@ -56,19 +56,19 @@ class DashboardView extends GetView<DashboardController> {
           body: Obx(
             () => IndexedStack(
               index: controller.selectedIndex.value,
-              children: [
-                const HomeView(),
-                Container(
-                  child: const Center(
-                    child: Text('Discover Coming Soon'),
-                  ),
-                ),
-                Container(
-                  child: const Center(
-                    child: Text('Flash Coming Soon'),
-                  ),
-                ),
-                const ProfileView(),
+              children: const [
+                HomeView(),
+                // Container(
+                //   child: const Center(
+                //     child: Text('Discover Coming Soon'),
+                //   ),
+                // ),
+                // Container(
+                //   child: const Center(
+                //     child: Text('Flash Coming Soon'),
+                //   ),
+                // ),
+                ProfileView(),
               ],
             ),
           ),

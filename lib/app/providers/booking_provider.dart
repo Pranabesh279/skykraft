@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/constants.dart';
 import 'package:skycraft/app/models/bookings/booking_mlodel.dart';
-import 'package:skycraft/app/providers/wallet_provider.dart';
+// import 'package:skycraft/app/providers/wallet_provider.dart';
 
 class BookingProvider extends GetxService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -15,11 +15,11 @@ class BookingProvider extends GetxService {
       data['createdAt'] = FieldValue.serverTimestamp();
       CollectionReference booking = _firestore.collection('bookings');
       final bookingId = await booking.add(data);
-      if (bookingId.id.isNotEmpty) {
-        await Get.find<WalletProvider>().deductWallet(
-            data['userId'], data['totalAmount'],
-            refId: bookingId.id, refType: 'bookings');
-      }
+      // if (bookingId.id.isNotEmpty) {
+      //   await Get.find<WalletProvider>().deductWallet(
+      //       data['userId'], data['totalAmount'],
+      //       refId: bookingId.id, refType: 'bookings');
+      // }
       log(bookingId.id, name: 'bookingId');
       return bookingId.id;
     } catch (e) {

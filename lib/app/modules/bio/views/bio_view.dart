@@ -133,16 +133,16 @@ class BioView extends GetView<BioController> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           // follow button
-                          Expanded(
-                            child: GradientButton(
-                              disable: true,
-                              onPressed: () {},
-                              child: const Text('Connect',
-                                  style: TextStyle(
-                                      fontSize: 16, color: Colors.white)),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
+                          // Expanded(
+                          //   child: GradientButton(
+                          //     disable: true,
+                          //     onPressed: () {},
+                          //     child: const Text('Connect',
+                          //         style: TextStyle(
+                          //             fontSize: 16, color: Colors.white)),
+                          //   ),
+                          // ),
+                          // const SizedBox(width: 10),
                           // // message button
                           // Expanded(
                           //   child: GradientButton(

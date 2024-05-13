@@ -207,54 +207,54 @@ class EmailView extends GetView<LoginController> {
                             name: 'email',
                             onTap: () {},
                           ),
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text('Phone Number',
-                                style: TextStyle(
-                                  // color: kPrimaryColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                )),
-                          ),
-                          // phone number field
-                          TextFormField(
-                            controller: controller.phoneNumberController,
-                            decoration: FieldDecoration(
-                              hintText: 'Enter your phone number',
-                              prefixIcon: const Padding(
-                                padding: EdgeInsets.only(left: 10, top: 14),
-                                child: Text(
-                                  '+91  ',
-                                  style: TextStyle(
-                                    color: kPrimaryColor,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ).kInputDecoration,
-                            style: const TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            enableSuggestions: true,
-                            enableInteractiveSelection: true,
-                            inputFormatters: [
-                              LengthLimitingTextInputFormatter(10),
-                            ],
-                            validator: (value) {
-                              if (value!.isEmpty ||
-                                  !RegExp(
-                                    r'^(?:[+0]9)?[0-9]{10}$',
-                                    multiLine: false,
-                                  ).hasMatch(value)) {
-                                return 'Please enter a valid phone number';
-                              }
-                              return null;
-                            },
-                            keyboardType: TextInputType.phone,
-                          ),
+                          // const Padding(
+                          //   padding: EdgeInsets.all(8.0),
+                          //   child: Text('Phone Number',
+                          //       style: TextStyle(
+                          //         // color: kPrimaryColor,
+                          //         fontSize: 12,
+                          //         fontWeight: FontWeight.w500,
+                          //       )),
+                          // ),
+                          // // phone number field
+                          // TextFormField(
+                          //   controller: controller.phoneNumberController,
+                          //   decoration: FieldDecoration(
+                          //     hintText: 'Enter your phone number',
+                          //     prefixIcon: const Padding(
+                          //       padding: EdgeInsets.only(left: 10, top: 14),
+                          //       child: Text(
+                          //         '+91  ',
+                          //         style: TextStyle(
+                          //           color: kPrimaryColor,
+                          //           fontSize: 16,
+                          //           fontWeight: FontWeight.w500,
+                          //         ),
+                          //       ),
+                          //     ),
+                          //   ).kInputDecoration,
+                          //   style: const TextStyle(
+                          //     color: kPrimaryColor,
+                          //     fontSize: 16,
+                          //     fontWeight: FontWeight.w500,
+                          //   ),
+                          //   enableSuggestions: true,
+                          //   enableInteractiveSelection: true,
+                          //   inputFormatters: [
+                          //     LengthLimitingTextInputFormatter(10),
+                          //   ],
+                          //   validator: (value) {
+                          //     if (value!.isEmpty ||
+                          //         !RegExp(
+                          //           r'^(?:[+0]9)?[0-9]{10}$',
+                          //           multiLine: false,
+                          //         ).hasMatch(value)) {
+                          //       return 'Please enter a valid phone number';
+                          //     }
+                          //     return null;
+                          //   },
+                          //   keyboardType: TextInputType.phone,
+                          // ),
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text('Password',

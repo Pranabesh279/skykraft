@@ -346,31 +346,31 @@ class ProfileView extends GetView<ProfileController> {
             ),
             actions: [
               // user Coins
-              Obx(() => CustomCard(
-                    height: 40,
-                    width: 100,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/icons/coins.png',
-                          height: 20,
-                          width: 20,
-                        ),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          '${(controller.coins.value.toInt())}',
-                          style: const TextStyle(
-                            color: kTextColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
+              // Obx(() => CustomCard(
+              //       height: 40,
+              //       width: 100,
+              //       child: Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: [
+              //           Image.asset(
+              //             'assets/icons/coins.png',
+              //             height: 20,
+              //             width: 20,
+              //           ),
+              //           const SizedBox(
+              //             width: 5,
+              //           ),
+              //           Text(
+              //             '${(controller.coins.value.toInt())}',
+              //             style: const TextStyle(
+              //               color: kTextColor,
+              //               fontSize: 16,
+              //               fontWeight: FontWeight.w500,
+              //             ),
+              //           ),
+              //         ],
+              //       ),
+              //     )),
             ]),
       ),
     );

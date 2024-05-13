@@ -55,7 +55,7 @@ class HomeView extends GetView<HomeController> {
                             selectedIndex: controller.selectedIndex.value,
                             tabs: const [
                               'Pilots',
-                              'Locations',
+                              // 'Locations',
                             ],
                           )),
                     ],

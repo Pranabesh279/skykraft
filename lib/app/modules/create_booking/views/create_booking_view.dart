@@ -119,60 +119,60 @@ class CreateBookingView extends GetView<CreateBookingController> {
                 ),
               ),
               const Spacer(),
-              Obx(() => controller.coins.value >= 0
-                  ? Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Your Coins Balance',
-                                style: TextStyle(
-                                  color: kPrimaryColor,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              controller.coins.value >
-                                      controller.getBookingPrice
-                                  ? const Text(
-                                      'You can use your coins to pay for this booking',
-                                      style: TextStyle(
-                                        color: Colors.black26,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    )
-                                  : const Text(
-                                      'You do not have enough coins to pay for this booking',
-                                      style: TextStyle(
-                                        color: Colors.orangeAccent,
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                            ],
-                          ),
-                          const Spacer(),
-                          Image.asset(
-                            'assets/icons/coins.png',
-                            width: 20,
-                            height: 20,
-                          ),
-                          Text(
-                            '${controller.coins.value.toInt()}',
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  : const SizedBox()),
+              // Obx(() => controller.coins.value >= 0
+              //     ? Container(
+              //         margin: const EdgeInsets.symmetric(horizontal: 20),
+              //         child: Row(
+              //           children: [
+              //             Column(
+              //               crossAxisAlignment: CrossAxisAlignment.start,
+              //               children: [
+              //                 const Text(
+              //                   'Your Coins Balance',
+              //                   style: TextStyle(
+              //                     color: kPrimaryColor,
+              //                     fontSize: 14,
+              //                     fontWeight: FontWeight.w600,
+              //                   ),
+              //                 ),
+              //                 controller.coins.value >
+              //                         controller.getBookingPrice
+              //                     ? const Text(
+              //                         'You can use your coins to pay for this booking',
+              //                         style: TextStyle(
+              //                           color: Colors.black26,
+              //                           fontSize: 10,
+              //                           fontWeight: FontWeight.w400,
+              //                         ),
+              //                       )
+              //                     : const Text(
+              //                         'You do not have enough coins to pay for this booking',
+              //                         style: TextStyle(
+              //                           color: Colors.orangeAccent,
+              //                           fontSize: 10,
+              //                           fontWeight: FontWeight.w400,
+              //                         ),
+              //                       ),
+              //               ],
+              //             ),
+              //             const Spacer(),
+              //             Image.asset(
+              //               'assets/icons/coins.png',
+              //               width: 20,
+              //               height: 20,
+              //             ),
+              //             Text(
+              //               '${controller.coins.value.toInt()}',
+              //               style: const TextStyle(
+              //                 color: Colors.black,
+              //                 fontSize: 20,
+              //                 fontWeight: FontWeight.w800,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       )
+              //     : const SizedBox()),
               Obx(
                 () => Container(
                   margin:
@@ -180,49 +180,50 @@ class CreateBookingView extends GetView<CreateBookingController> {
                   child: GradientButton(
                       isLoading: controller.isLoading.value,
                       disable: controller.fromAddress.value == null ||
-                          controller.selectedDates.isEmpty ||
-                          controller.coins.value < 0 ||
-                          controller.coins.value < controller.getBookingPrice,
+                          controller.selectedDates.isEmpty,
+                      // ||
+                      // controller.coins.value < 0 ||
+                      // controller.coins.value < controller.getBookingPrice,
                       onPressed: () async {
                         await controller.createBooking();
                       },
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 5),
-                      child: Row(
+                      child: const Row(
                         children: [
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'Total Price',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 8,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Image.asset(
-                                      'assets/icons/coins.png',
-                                      width: 20,
-                                      height: 20,
-                                    ),
-                                    Text(
-                                      '${controller.getBookingPrice}',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                // const Text(
+                                //   'Total Price',
+                                //   style: TextStyle(
+                                //     color: Colors.white,
+                                //     fontSize: 8,
+                                //     fontWeight: FontWeight.w400,
+                                //   ),
+                                // ),
+                                // Row(
+                                //   children: [
+                                //     Image.asset(
+                                //       'assets/icons/coins.png',
+                                //       width: 20,
+                                //       height: 20,
+                                //     ),
+                                //     Text(
+                                //       '${controller.getBookingPrice}',
+                                //       style: const TextStyle(
+                                //         color: Colors.white,
+                                //         fontSize: 20,
+                                //         fontWeight: FontWeight.w800,
+                                //       ),
+                                //     ),
+                                //   ],
+                                // ),
                               ],
                             ),
                           ),
-                          const Text(
+                          Text(
                             'Request Booking',
                             style: TextStyle(
                               color: Colors.white,
@@ -230,7 +231,7 @@ class CreateBookingView extends GetView<CreateBookingController> {
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          const Icon(
+                          Icon(
                             Icons.arrow_forward_ios,
                             color: Colors.white,
                             size: 20,
