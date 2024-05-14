@@ -231,54 +231,54 @@ class BookingCard extends GetView<BookingListController> {
                         ))
                     .toList()),
             // amout paid - remove platfrom fee 10% from the total amount
-            const SizedBox(
-              height: 10,
-            ),
-            const Text('Billing Amount', style: TextStyle(fontSize: 12)),
-            Row(
-              children: [
-                Image.asset(
-                  'assets/icons/coins.png',
-                  height: 20,
-                  width: 20,
-                ),
-                Text(
-                  '${booking.totalAmount ?? 0}',
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                  ),
-                ),
-                // you can add the platform fee here  - 10% of the total amount
-                Text(
-                  ' (-${(booking.totalAmount ?? 0) * 0.1})',
-                  style: const TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                  ),
-                ),
-                const Spacer(),
-                Image.asset(
-                  'assets/icons/coins.png',
-                  height: 20,
-                  width: 20,
-                ),
-                Text(
-                  '+ ${(booking.totalAmount ?? 0) - (booking.totalAmount ?? 0) * 0.1}',
-                  style: const TextStyle(
-                    color: Colors.green,
-                    fontSize: 12,
-                  ),
-                ),
-              ],
-            ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
+            // const Text('Billing Amount', style: TextStyle(fontSize: 12)),
+            // Row(
+            //   children: [
+            //     Image.asset(
+            //       'assets/icons/coins.png',
+            //       height: 20,
+            //       width: 20,
+            //     ),
+            //     Text(
+            //       '${booking.totalAmount ?? 0}',
+            //       style: const TextStyle(
+            //         color: Colors.grey,
+            //         fontSize: 12,
+            //       ),
+            //     ),
+            //     // you can add the platform fee here  - 10% of the total amount
+            //     Text(
+            //       ' (-${(booking.totalAmount ?? 0) * 0.1})',
+            //       style: const TextStyle(
+            //         color: Colors.red,
+            //         fontSize: 12,
+            //       ),
+            //     ),
+            //     const Spacer(),
+            //     Image.asset(
+            //       'assets/icons/coins.png',
+            //       height: 20,
+            //       width: 20,
+            //     ),
+            //     Text(
+            //       '+ ${(booking.totalAmount ?? 0) - (booking.totalAmount ?? 0) * 0.1}',
+            //       style: const TextStyle(
+            //         color: Colors.green,
+            //         fontSize: 12,
+            //       ),
+            //     ),
+            //   ],
+            // ),
             if (controller.isShowButtonSegment(booking.bookingStatus!) &&
                 booking.bookingStatus != BookingStatus.completed)
               Divider(
                 color: Colors.grey[200],
                 thickness: 1,
               ),
-            // aceopt or reject
+            // // aceopt or reject
             if (controller.isShowButtonSegment(booking.bookingStatus!) &&
                 booking.bookingStatus != BookingStatus.completed)
               Obx(() => SizedBox(

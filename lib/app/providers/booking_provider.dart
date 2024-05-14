@@ -64,6 +64,7 @@ class BookingProvider extends GetxService {
 
   Stream<List<BookingModel>> getBookingsStream(String userId,
       {required String userRole}) {
+    log("$userId $userRole", name: "getBookingsStream");
     CollectionReference booking = _firestore.collection('bookings');
     return booking
         .where(userRole == UserRole.client ? 'userId' : 'dronUserId',

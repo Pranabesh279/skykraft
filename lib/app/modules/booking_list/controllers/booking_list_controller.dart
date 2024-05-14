@@ -15,16 +15,7 @@ class BookingListController extends GetxController {
   RxBool isRejectLoading = false.obs;
   RxBool isCompleteLoading = false.obs;
 
-  List<BookingModel> get bookings => _bookings.where((element) {
-        if (search.value.isEmpty) {
-          return true;
-        }
-        return element.id!.contains(search.value) ||
-            element.userId!.contains(search.value) ||
-            element.dronUserId!.contains(search.value) ||
-            element.totalAmount!.toString().contains(search.value) ||
-            element.bookingStatus!.contains(search.value);
-      }).toList();
+  List<BookingModel> get bookings => _bookings.value;
 
   @override
   void onInit() {
