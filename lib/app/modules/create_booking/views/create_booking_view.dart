@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/models/addresss_data.dart';
 import 'package:skycraft/app/modules/address_input/bindings/address_input_binding.dart';
 import 'package:skycraft/app/modules/address_input/views/address_input_view.dart';

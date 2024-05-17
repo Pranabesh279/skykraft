@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:skycraft/app/constants/decorations.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/widgets/buttons/gradient_button.dart';
 import 'package:skycraft/app/widgets/email_field.dart';

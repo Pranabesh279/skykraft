@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:geocoder2/geocoder2.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter/foundation.dart' as foundation;
