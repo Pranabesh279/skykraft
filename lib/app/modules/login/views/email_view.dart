@@ -185,6 +185,7 @@ class EmailView extends GetView<LoginController> {
                           EmailTextField(
                             controller: controller.usernameController,
                             name: 'email',
+                            hintText: 'Enter your username',
                             onTap: () {},
                             validator: (p0) {
                               if (p0!.isEmpty) {

@@ -49,15 +49,23 @@ class BookingProvider extends GetxService {
     }
   }
 
-  Future<List<BookingModel>> getBookings(String userId) async {
+  Future<List<BookingModel>> getBookings(String userId,
+      {required String userRole}) async {
     try {
+      log("$userId $userRole", name: "getBookings");
       CollectionReference booking = _firestore.collection('bookings');
-      final bookings = await booking
-          // .where('userId', isEqualTo: userId)
-          .orderBy('createdAt', descending: true)
-          .get();
+      final bookings = userRole == UserRole.client
+          ? await booking
+              .where('userId', isEqualTo: userId)
+              // .orderBy('createdAt', descending: true)
+              .get()
+          : await booking
+              .where('dronUserId', isEqualTo: userId)
+              // .orderBy('createdAt', descending: true)
+              .get();
       return bookings.docs.map((e) => BookingModel.fromSnap(e)).toList();
     } catch (e) {
+      log(e.toString(), name: "getBookings" "error");
       return [];
     }
   }
@@ -66,12 +74,18 @@ class BookingProvider extends GetxService {
       {required String userRole}) {
     log("$userId $userRole", name: "getBookingsStream");
     CollectionReference booking = _firestore.collection('bookings');
-    return booking
-        .where(userRole == UserRole.client ? 'userId' : 'dronUserId',
-            isEqualTo: userId)
-        .orderBy('createdAt', descending: true)
-        .snapshots()
-        .map((event) =>
-            event.docs.map((e) => BookingModel.fromSnap(e)).toList());
+    return userRole == UserRole.client
+        ? booking
+            .where('userId', isEqualTo: userId)
+            // .orderBy('createdAt', descending: true)
+            .snapshots()
+            .map((event) =>
+                event.docs.map((e) => BookingModel.fromSnap(e)).toList())
+        : booking
+            .where('dronUserId', isEqualTo: userId)
+            // .orderBy('createdAt', descending: true)
+            .snapshots()
+            .map((event) =>
+                event.docs.map((e) => BookingModel.fromSnap(e)).toList());
   }
 }

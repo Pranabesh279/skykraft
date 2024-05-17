@@ -55,13 +55,13 @@ class BookingListView extends GetView<BookingListController> {
           ),
         ),
         body: Obx(
-          () => controller.bookings.isEmpty
+          () => controller.isLoading.value
               ? const Center(
-                  child: Text('No Bookings'),
+                  child: CircularProgressIndicator(),
                 )
               : ListView.builder(
                   padding: const EdgeInsets.all(8),
-                  itemCount: controller.bookings.length ?? 0,
+                  itemCount: controller.bookings.length,
                   itemBuilder: (context, index) {
                     final booking = controller.bookings[index];
                     return BookingCard(

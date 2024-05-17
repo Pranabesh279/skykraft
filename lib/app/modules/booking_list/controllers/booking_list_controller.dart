@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_final_fields
+
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/constants.dart';
 import 'package:skycraft/app/models/bookings/booking_mlodel.dart';
@@ -10,12 +12,13 @@ class BookingListController extends GetxController {
   BookingProvider bookingProvider = Get.find<BookingProvider>();
   WalletProvider walletProvider = Get.find<WalletProvider>();
   Rx<String> search = ''.obs;
-  final RxList<BookingModel> _bookings = <BookingModel>[].obs;
+  RxList<BookingModel> _bookings = <BookingModel>[].obs;
+  RxBool isLoading = false.obs;
   RxBool isAcceptLoading = false.obs;
   RxBool isRejectLoading = false.obs;
   RxBool isCompleteLoading = false.obs;
 
-  List<BookingModel> get bookings => _bookings.value;
+  List<BookingModel> get bookings => _bookings;
 
   @override
   void onInit() {
@@ -23,10 +26,15 @@ class BookingListController extends GetxController {
     getBookings();
   }
 
-  getBookings() {
+  getBookings() async {
     _bookings.bindStream(bookingProvider.getBookingsStream(
         authProvider.userModel.value!.uid!,
         userRole: authProvider.userModel.value!.role!));
+    // isLoading.value = true;
+    // _bookings.value = await bookingProvider
+    //     .getBookings(authProvider.userModel.value!.uid!,
+    //         userRole: authProvider.userModel.value!.role!)
+    //     .whenComplete(() => isLoading.value = false);
   }
 
   String get curentUserRole => authProvider.userModel.value!.role!;
