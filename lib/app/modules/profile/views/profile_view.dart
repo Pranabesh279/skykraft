@@ -113,7 +113,8 @@ class ProfileView extends GetView<ProfileController> {
             ),
             SingleChildScrollView(
               child: Column(children: [
-                Obx(() => controller.user?.location != null
+                Obx(() => controller.user?.role == UserRole.dronePilot &&
+                        controller.user?.location != null
                     ? const SizedBox()
                     : Container(
                         color: Colors.orangeAccent.withOpacity(0.1),
@@ -130,11 +131,11 @@ class ProfileView extends GetView<ProfileController> {
                               size: 12,
                             ),
                             const SizedBox(
-                              width: 5,
+                              width: 8,
                             ),
                             const Expanded(
                               child: Text(
-                                'Please update your location, for visibility',
+                                'Please update your location, for real time visibility on map',
                                 style: TextStyle(
                                   color: Colors.orangeAccent,
                                   fontSize: 12,
