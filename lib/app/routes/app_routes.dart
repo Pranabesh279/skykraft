@@ -20,6 +20,9 @@ abstract class Routes {
   static const ADDRESS_INPUT = _Paths.ADDRESS_INPUT;
   static const BOOKING_LIST = _Paths.BOOKING_LIST;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const TERMS_AND_CONDITIONS = _Paths.TERMS_AND_CONDITIONS;
+  static const PRIVACY_POLICY = _Paths.PRIVACY_POLICY;
+  static const LOCATION_PERMISSION = _Paths.LOCATION_PERMISSION;
 }
 
 abstract class _Paths {
@@ -42,4 +45,7 @@ abstract class _Paths {
   static const ADDRESS_INPUT = '/address-input';
   static const BOOKING_LIST = '/booking-list';
   static const EDIT_PROFILE = '/edit-profile';
+  static const TERMS_AND_CONDITIONS = '/terms-and-conditions';
+  static const PRIVACY_POLICY = '/privacy-policy';
+  static const LOCATION_PERMISSION = '/location-permission';
 }

@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/constants.dart';
+import 'package:skycraft/app/modules/locationPermission/controllers/location_permission_controller.dart';
 import 'package:skycraft/app/providers/auth_provider.dart';
 import 'package:skycraft/app/providers/wallet_provider.dart';
 import 'package:skycraft/app/routes/app_pages.dart';
@@ -24,7 +25,13 @@ class SetUserRoleController extends GetxController {
           .update(data);
       await _auth.updateUserData(_auth.userModel.value!.uid!);
       isLoading.value = false;
-      Get.offAllNamed(AppPages.MAIN);
+      bool isLocationPermission =
+          await LocationService.checkLocationPermission();
+      if (isLocationPermission) {
+        Get.offAllNamed(AppPages.MAIN);
+      } else {
+        Get.offAllNamed(Routes.LOCATION_PERMISSION);
+      }
     } catch (err) {
       isLoading.value = false;
       Get.snackbar('Error', err.toString());
@@ -33,7 +40,6 @@ class SetUserRoleController extends GetxController {
 
   Future<Map<String, dynamic>> payload() async {
     final walletId = await _wallet.createWallet(_auth.userModel.value!.uid!);
-
     Map<String, dynamic> data = {
       'role': userRole.value,
       'walletId': walletId,

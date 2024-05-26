@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/widgets/buttons/gradient_button.dart';
 import 'package:skycraft/app/widgets/email_field.dart';
+import 'package:skycraft/app/widgets/i_aggred.dart';
 import 'package:skycraft/app/widgets/pass_field.dart';
 import 'package:skycraft/app/widgets/screen.dart';
 
@@ -47,6 +49,7 @@ class EmailView extends GetView<LoginController> {
                         InkWell(
                           onTap: () {
                             controller.isViewSignUp.value = false;
+                            controller.isChecked.value = false;
                           },
                           child: AnimatedContainer(
                             padding: const EdgeInsets.only(
@@ -79,6 +82,7 @@ class EmailView extends GetView<LoginController> {
                         InkWell(
                           onTap: () {
                             controller.isViewSignUp.value = true;
+                            controller.isChecked.value = false;
                           },
                           child: AnimatedContainer(
                             duration: const Duration(milliseconds: 300),
@@ -149,11 +153,31 @@ class EmailView extends GetView<LoginController> {
                             ),
                           ),
                           const SizedBox(height: 40),
+                          Row(
+                            children: [
+                              Obx(
+                                () => Checkbox(
+                                  value: controller.isChecked.value,
+                                  onChanged: (value) {
+                                    controller.isChecked.value = value!;
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                  child: privacyPolicyLinkAndTermsOfService()),
+                            ],
+                          ),
                           Obx(
                             () => GradientButton(
                                 onPressed: () {
+                                  if (!controller.isChecked.value) {
+                                    Get.snackbar('Hey!',
+                                        'Please agree to the terms of service and privacy policy');
+                                    return;
+                                  }
                                   controller.signIn();
                                 },
+                                disable: !controller.isChecked.value,
                                 isLoading: controller.isLoading.value,
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 20),
@@ -291,10 +315,30 @@ class EmailView extends GetView<LoginController> {
                           //
 
                           const SizedBox(height: 40),
+                          Row(
+                            children: [
+                              Obx(
+                                () => Checkbox(
+                                  value: controller.isChecked.value,
+                                  onChanged: (value) {
+                                    controller.isChecked.value = value!;
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                  child: privacyPolicyLinkAndTermsOfService()),
+                            ],
+                          ),
                           Obx(
                             () => GradientButton(
                                 isLoading: controller.isLoading.value,
+                                disable: !controller.isChecked.value,
                                 onPressed: () {
+                                  if (!controller.isChecked.value) {
+                                    Get.snackbar('Hey!',
+                                        'Please agree to the terms of service and privacy policy');
+                                    return;
+                                  }
                                   controller.signUp();
                                 },
                                 padding:

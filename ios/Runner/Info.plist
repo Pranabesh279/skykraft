@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Skykraft</string>
+	<string>Skykraft MVP</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -27,9 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>needed to access location for showing your position in map for booking area</string>
+	<string>Location permission help us for improve booking experience and upadate your location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>needed to access location for showing your position in map for booking area</string>
+	<string>Location permission help us for improve booking experience and upadate your location on the map</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

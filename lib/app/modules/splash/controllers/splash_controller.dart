@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:skycraft/app/modules/locationPermission/controllers/location_permission_controller.dart';
 import 'package:skycraft/app/providers/auth_provider.dart';
 import 'package:skycraft/app/routes/app_pages.dart';
 
@@ -19,7 +20,13 @@ class SplashController extends GetxController {
           Get.offAllNamed(Routes.SET_USER_ROLE);
           return;
         }
-        Get.offAllNamed(AppPages.MAIN);
+        bool isLocationPermission =
+            await LocationService.checkLocationPermission();
+        if (isLocationPermission) {
+          Get.offAllNamed(AppPages.MAIN);
+        } else {
+          Get.offAllNamed(Routes.LOCATION_PERMISSION);
+        }
       } else {
         Get.offAllNamed(Routes.LOGIN);
       }

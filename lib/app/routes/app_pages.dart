@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/PrivacyPolicy/bindings/privacy_policy_binding.dart';
+import '../modules/PrivacyPolicy/views/privacy_policy_view.dart';
+import '../modules/TermsAndConditions/bindings/terms_and_conditions_binding.dart';
+import '../modules/TermsAndConditions/views/terms_and_conditions_view.dart';
 import '../modules/activity/bindings/activity_binding.dart';
 import '../modules/activity/views/activity_view.dart';
 import '../modules/address_input/bindings/address_input_binding.dart';
@@ -18,6 +22,8 @@ import '../modules/discover/bindings/discover_binding.dart';
 import '../modules/discover/views/discover_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
+import '../modules/locationPermission/bindings/location_permission_binding.dart';
+import '../modules/locationPermission/views/location_permission_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/email_view.dart';
 import '../modules/permissions/bindings/permissions_binding.dart';
@@ -107,6 +113,21 @@ class AppPages {
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.TERMS_AND_CONDITIONS,
+      page: () => const TermsAndConditionsView(),
+      binding: TermsAndConditionsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRIVACY_POLICY,
+      page: () => const PrivacyPolicyView(),
+      binding: PrivacyPolicyBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOCATION_PERMISSION,
+      page: () => const LocationPermissionView(),
+      binding: LocationPermissionBinding(),
     ),
   ];
 }
