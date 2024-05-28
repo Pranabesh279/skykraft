@@ -27,9 +27,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location permission help us for improve booking experience and upadate your location on the map</string>
+	<string>location permission help us for improve booking experience and upadate your location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location permission help us for improve booking experience and upadate your location on the map</string>
+	<string>location permission help us for improve booking experience and upadate your location on the map</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
