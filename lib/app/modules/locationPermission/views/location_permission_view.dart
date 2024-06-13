@@ -146,7 +146,7 @@ class LocationPermissionView extends GetView<LocationPermissionController> {
                     },
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: const Text(
-                      'Allow Permission',
+                      'Next',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

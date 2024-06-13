@@ -3,7 +3,7 @@ description: "A new Flutter project."
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.5+0
+version: 4.0.1+0
 
 environment:
   sdk: ">=3.3.4 <4.0.0"
@@ -44,13 +44,13 @@ flutter_native_splash:
 flutter:
   uses-material-design: true
   assets:
-    - assets/
-    - assets/images/
-    - assets/fonts/
-    - assets/icons/
+  - assets/
+  - assets/images/
+  - assets/fonts/
+  - assets/icons/
 
   # example:
   fonts:
-    - family: Circular Std
-      fonts:
-        - asset: assets/fonts/circular-std-medium-500.ttf
+  - family: Circular Std
+    fonts:
+    - asset: assets/fonts/circular-std-medium-500.ttf

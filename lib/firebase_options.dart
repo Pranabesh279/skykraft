@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDBeLu2kXtPEhZ5Nv9XbhQtXbdIGUv4IyM',
-    appId: '1:167742209744:android:dc4067320bb8376069e8d5',
+    appId: '1:167742209744:android:665290e37235d84e69e8d5',
     messagingSenderId: '167742209744',
     projectId: 'skykraft-e7fb7',
     storageBucket: 'skykraft-e7fb7.appspot.com',
@@ -63,11 +63,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCPXH3iGabrDu7qDyJsOYUQ73Kr0ZOJgTs',
-    appId: '1:167742209744:ios:fc08135a11e91e0c69e8d5',
+    appId: '1:167742209744:ios:cd5cef83bd99083669e8d5',
     messagingSenderId: '167742209744',
     projectId: 'skykraft-e7fb7',
     storageBucket: 'skykraft-e7fb7.appspot.com',
-    iosBundleId: 'com.dronacharya.skycraft',
+    iosBundleId: 'in.skykraft.SkyKraftUserApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
