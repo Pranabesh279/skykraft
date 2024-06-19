@@ -8,6 +8,10 @@ import '../modules/activity/bindings/activity_binding.dart';
 import '../modules/activity/views/activity_view.dart';
 import '../modules/address_input/bindings/address_input_binding.dart';
 import '../modules/address_input/views/address_input_view.dart';
+import '../modules/authPhone/bindings/auth_phone_binding.dart';
+import '../modules/authPhone/views/auth_phone_view.dart';
+import '../modules/authPhoneVerify/bindings/auth_phone_verify_binding.dart';
+import '../modules/authPhoneVerify/views/auth_phone_verify_view.dart';
 import '../modules/bio/bindings/bio_binding.dart';
 import '../modules/bio/views/bio_view.dart';
 import '../modules/booking_details/bindings/booking_details_binding.dart';
@@ -128,6 +132,16 @@ class AppPages {
       name: _Paths.LOCATION_PERMISSION,
       page: () => const LocationPermissionView(),
       binding: LocationPermissionBinding(),
+    ),
+    GetPage(
+      name: _Paths.AUTH_PHONE,
+      page: () => const AuthPhoneView(),
+      binding: AuthPhoneBinding(),
+    ),
+    GetPage(
+      name: _Paths.AUTH_PHONE_VERIFY,
+      page: () => const AuthPhoneVerifyView(),
+      binding: AuthPhoneVerifyBinding(),
     ),
   ];
 }

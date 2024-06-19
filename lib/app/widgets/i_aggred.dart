@@ -10,12 +10,12 @@ Widget privacyPolicyLinkAndTermsOfService() {
     child: Center(
         child: Text.rich(TextSpan(
             text: 'By continuing, you agree to our ',
-            style: const TextStyle(fontSize: 16, color: Colors.black),
+            style: const TextStyle(fontSize: 14, color: Colors.black),
             children: <TextSpan>[
           TextSpan(
               text: 'Terms of Service',
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 color: Colors.black,
                 decoration: TextDecoration.underline,
               ),
@@ -25,12 +25,12 @@ Widget privacyPolicyLinkAndTermsOfService() {
                 }),
           TextSpan(
               text: ' and ',
-              style: const TextStyle(fontSize: 18, color: Colors.black),
+              style: const TextStyle(fontSize: 14, color: Colors.black),
               children: <TextSpan>[
                 TextSpan(
                     text: 'Privacy Policy',
                     style: const TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         color: Colors.black,
                         decoration: TextDecoration.underline),
                     recognizer: TapGestureRecognizer()

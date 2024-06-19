@@ -39,6 +39,7 @@ class Screen extends StatelessWidget {
       key: UniqueKey(),
       backgroundColor: backgroundColor,
       body: Container(
+        // padding: padding,
         decoration: const BoxDecoration(),
         child: body,
       ),

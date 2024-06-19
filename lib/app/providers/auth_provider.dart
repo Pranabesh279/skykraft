@@ -7,12 +7,14 @@ import 'package:get/get.dart';
 import 'package:skycraft/app/models/auth/user_model.dart';
 import 'package:skycraft/app/routes/app_pages.dart';
 
+enum Status { Uninitialized, Authenticated, Authenticating, Unauthenticated }
+
 class AuthProvider extends GetxService {
   Rx<User?> user = Rx<User?>(null);
   Rx<UserModel?> userModel = Rx<UserModel?>(null);
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  Rx<Status> status = Rx<Status>(Status.Uninitialized);
   String? get uid => user.value?.uid;
 
   @override
@@ -51,6 +53,26 @@ class AuthProvider extends GetxService {
     //     updateUserData(u.uid!);
     //   }
     // });
+  }
+
+  Future<bool> signInWithOTP(verId, smsCode) async {
+    status.value = Status.Authenticating;
+    PhoneAuthCredential credential =
+        PhoneAuthProvider.credential(verificationId: verId, smsCode: smsCode);
+    try {
+      UserCredential authResult = await _auth.signInWithCredential(credential);
+      user.value = authResult.user;
+      status.value = Status.Authenticated;
+      return true;
+    } on FirebaseAuthException catch (e) {
+      status.value = Status.Unauthenticated;
+      // SnackBar(content: Text(e.message.toString()));
+      // snackbar(
+      //     title: 'Verification Error',
+      //     message: e.message.toString(),
+      //     type: SnackbarType.error);
+      return false;
+    }
   }
 
   Future<String> signUpUser({

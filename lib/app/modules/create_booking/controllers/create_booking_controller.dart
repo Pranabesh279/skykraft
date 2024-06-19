@@ -34,7 +34,6 @@ class CreateBookingController extends GetxController {
 
   void getWalletBalance() async {
     String uid = Get.find<AuthProvider>().userModel.value!.uid!;
-
     coins.bindStream(Get.find<WalletProvider>().walletStream(uid));
   }
 

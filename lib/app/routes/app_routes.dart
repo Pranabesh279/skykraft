@@ -23,6 +23,8 @@ abstract class Routes {
   static const TERMS_AND_CONDITIONS = _Paths.TERMS_AND_CONDITIONS;
   static const PRIVACY_POLICY = _Paths.PRIVACY_POLICY;
   static const LOCATION_PERMISSION = _Paths.LOCATION_PERMISSION;
+  static const AUTH_PHONE = _Paths.AUTH_PHONE;
+  static const AUTH_PHONE_VERIFY = _Paths.AUTH_PHONE_VERIFY;
 }
 
 abstract class _Paths {
@@ -48,4 +50,6 @@ abstract class _Paths {
   static const TERMS_AND_CONDITIONS = '/terms-and-conditions';
   static const PRIVACY_POLICY = '/privacy-policy';
   static const LOCATION_PERMISSION = '/location-permission';
+  static const AUTH_PHONE = '/auth-phone';
+  static const AUTH_PHONE_VERIFY = '/auth-phone-verify';
 }
