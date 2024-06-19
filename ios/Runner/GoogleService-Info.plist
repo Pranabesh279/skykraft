@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCPXH3iGabrDu7qDyJsOYUQ73Kr0ZOJgTs</string>
+	<string>AIzaSyCN7lw16mTfMwxPp9oOmgxQhfYzgrTUsBo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>167742209744</string>
+	<string>483329949094</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>in.skykraft.SkyKraftUserApp</string>
 	<key>PROJECT_ID</key>
-	<string>skykraft-e7fb7</string>
+	<string>eprovide-fa8a0</string>
 	<key>STORAGE_BUCKET</key>
-	<string>skykraft-e7fb7.appspot.com</string>
+	<string>eprovide-fa8a0.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:167742209744:ios:cd5cef83bd99083669e8d5</string>
+	<string>1:483329949094:ios:836e7049385da4ecada367</string>
 </dict>
 </plist>

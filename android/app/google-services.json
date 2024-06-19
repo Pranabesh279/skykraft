@@ -1,40 +1,21 @@
 {
   "project_info": {
-    "project_number": "167742209744",
-    "project_id": "skykraft-e7fb7",
-    "storage_bucket": "skykraft-e7fb7.appspot.com"
+    "project_number": "483329949094",
+    "project_id": "eprovide-fa8a0",
+    "storage_bucket": "eprovide-fa8a0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:167742209744:android:dc4067320bb8376069e8d5",
+        "mobilesdk_app_id": "1:483329949094:android:26046a7b180dd0e1ada367",
         "android_client_info": {
-          "package_name": "com.skycraft.app"
+          "package_name": "com.trugotech.skyKraft"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDBeLu2kXtPEhZ5Nv9XbhQtXbdIGUv4IyM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:167742209744:android:665290e37235d84e69e8d5",
-        "android_client_info": {
-          "package_name": "com.skykraft.app"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDBeLu2kXtPEhZ5Nv9XbhQtXbdIGUv4IyM"
+          "current_key": "AIzaSyBWMUyUSGSVbd29DPgXjY1VUHWylEOdG14"
         }
       ],
       "services": {

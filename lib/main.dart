@@ -40,7 +40,7 @@ class InitializeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Sky kraft MVP",
+      title: "Sky kraft",
       theme: lightTheme(context),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,

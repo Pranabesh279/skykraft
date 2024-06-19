@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.skykraft.app"
+        applicationId "com.trugotech.skyKraft"
         minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
