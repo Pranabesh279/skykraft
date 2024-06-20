@@ -73,7 +73,7 @@ class HomeController extends GetxController {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               ProfileImage(
-                name: user.name!,
+                image: user.photoUrl!,
                 userRole: user.role,
                 size: 30,
               ),

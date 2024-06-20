@@ -95,6 +95,7 @@ class AddUserProfileView extends GetView<AddUserProfileController> {
                       )),
                 ),
                 TextFormField(
+                  controller: controller.nameController,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Username is required';
@@ -116,7 +117,7 @@ class AddUserProfileView extends GetView<AddUserProfileController> {
                 ),
                 GradientButton(
                   onPressed: () {
-                    // controller.submit();
+                    controller.submit();
                   },
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Obx(() => controller.isLoading.value

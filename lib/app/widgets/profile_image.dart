@@ -3,14 +3,15 @@ import 'package:flutter_advanced_avatar/flutter_advanced_avatar.dart';
 import 'package:random_avatar/random_avatar.dart';
 import 'package:skycraft/app/constants/constants.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
+import 'package:skycraft/app/modules/AddUserProfile/widgets/profikle_avatar.dart';
 
 class ProfileImage extends StatelessWidget {
-  final String name;
+  final String image;
   final String? userRole;
   final double? size;
 
   const ProfileImage(
-      {super.key, required this.name, required this.userRole, this.size});
+      {super.key, required this.image, required this.userRole, this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +46,8 @@ class ProfileImage extends StatelessWidget {
           ),
         ]
       ],
-      child: RandomAvatar(
-        (name),
+      child: ProfileAvatar(
+        imageUrl: image,
       ),
     );
   }

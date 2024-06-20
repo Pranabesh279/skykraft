@@ -32,7 +32,7 @@ class ProfileView extends GetView<ProfileController> {
                       Obx(() => controller.user?.uid == null
                           ? const SizedBox()
                           : ProfileImage(
-                              name: controller.user?.name ?? "",
+                              image: controller.user?.photoUrl ?? "",
                               userRole: controller.user?.role ?? "",
                             )),
 
@@ -55,7 +55,7 @@ class ProfileView extends GetView<ProfileController> {
                             const SizedBox(
                               height: 2,
                             ),
-                            Obx(() => Text(controller.user?.email ?? '')),
+                            Obx(() => Text(controller.user?.username ?? '')),
                             const SizedBox(
                               height: 5,
                             ),

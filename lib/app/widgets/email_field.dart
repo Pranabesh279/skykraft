@@ -9,6 +9,7 @@ class EmailTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final VoidCallback onTap;
+  final TextInputType? keyboardType;
   final bool? enabled;
   const EmailTextField({
     super.key,
@@ -16,6 +17,7 @@ class EmailTextField extends StatelessWidget {
     this.hintText,
     this.controller,
     required this.onTap,
+    this.keyboardType,
     this.validator,
     this.enabled,
   });
@@ -41,7 +43,7 @@ class EmailTextField extends StatelessWidget {
       ],
       style: const TextStyle(fontSize: 12, color: kPrimaryColor),
       onTap: onTap,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: keyboardType ?? TextInputType.emailAddress,
       decoration: FieldDecoration(
         hintText: hintText ?? 'Enter Your Email Id',
       ).kInputDecoration,

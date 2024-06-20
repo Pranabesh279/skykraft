@@ -80,7 +80,7 @@ class BookingCard extends GetView<BookingListController> {
                       return Row(
                         children: [
                           ProfileImage(
-                            name: snapshot.data?.name ?? '',
+                            image: snapshot.data?.photoUrl ?? '',
                             userRole: snapshot.data?.role ?? '',
                             size: 30,
                           ),

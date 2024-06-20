@@ -36,7 +36,7 @@ class BioView extends GetView<BioController> {
                 children: [
                   const SizedBox(height: 10),
                   ProfileImage(
-                    name: controller.user!.name!,
+                    image: controller.user!.name!,
                     userRole: controller.user!.role!,
                     size: 60,
                   ),

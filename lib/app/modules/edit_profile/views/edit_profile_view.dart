@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
+import 'package:skycraft/app/constants/decorations.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/widgets/buttons/gradient_button.dart';
 import 'package:skycraft/app/widgets/email_field.dart';
@@ -53,14 +55,14 @@ class EditProfileView extends GetView<EditProfileController> {
                 controller.user.value == null
                     ? const CircularProgressIndicator()
                     : ProfileImage(
-                        name: controller.user.value?.name ?? '',
+                        image: controller.user.value?.photoUrl ?? '',
                         userRole: controller.user.value?.role ?? '',
                         size: 80,
                       ),
                 const SizedBox(height: 10),
                 // user Role and name
                 Text(
-                  'Hi, ${(controller.user.value?.role ?? '').capitalizeFirst}',
+                  (controller.user.value?.username ?? ''),
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -85,7 +87,8 @@ class EditProfileView extends GetView<EditProfileController> {
                       ),
                       EmailTextField(
                         controller: controller.usernameController,
-                        name: 'email',
+                        name: 'name',
+                        keyboardType: TextInputType.name,
                         onTap: () {},
                         validator: (p0) {
                           if (p0!.isEmpty) {
@@ -94,70 +97,75 @@ class EditProfileView extends GetView<EditProfileController> {
                           return null;
                         },
                       ),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('Email (Cannot be changed)',
-                            style: TextStyle(
-                              // color: kPrimaryColor,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                            )),
-                      ),
-                      EmailTextField(
-                        controller: controller.emailController,
-                        name: 'email',
-                        enabled: false,
-                        onTap: () {},
-                      ),
-                      // const Padding(
-                      //   padding: EdgeInsets.all(8.0),
-                      //   child: Text('Phone Number (Cannot be changed)',
-                      //       style: TextStyle(
-                      //         // color: kPrimaryColor,
-                      //         fontSize: 12,
-                      //         fontWeight: FontWeight.w500,
-                      //       )),
-                      // ),
-                      // // phone number field
-                      // TextFormField(
-                      //   controller: controller.phoneNumberController,
-                      //   enabled: false,
-                      //   decoration: FieldDecoration(
-                      //     hintText: 'Enter your phone number',
-                      //     prefixIcon: const Padding(
-                      //       padding: EdgeInsets.only(left: 10, top: 14),
-                      //       child: Text(
-                      //         '+91  ',
-                      //         style: TextStyle(
-                      //           color: kPrimaryColor,
-                      //           fontSize: 16,
-                      //           fontWeight: FontWeight.w500,
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ).kInputDecoration,
-                      //   style: const TextStyle(
-                      //     color: kPrimaryColor,
-                      //     fontSize: 16,
-                      //     fontWeight: FontWeight.w500,
-                      //   ),
-                      //   enableSuggestions: true,
-                      //   enableInteractiveSelection: true,
-                      //   inputFormatters: [
-                      //     LengthLimitingTextInputFormatter(10),
-                      //   ],
-                      //   validator: (value) {
-                      //     if (value!.isEmpty ||
-                      //         !RegExp(
-                      //           r'^(?:[+0]9)?[0-9]{10}$',
-                      //           multiLine: false,
-                      //         ).hasMatch(value)) {
-                      //       return 'Please enter a valid phone number';
-                      //     }
-                      //     return null;
-                      //   },
-                      //   keyboardType: TextInputType.phone,
-                      // ),
+                      if (controller.emailController.text.isNotEmpty) ...[
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Email (Cannot be changed)',
+                              style: TextStyle(
+                                // color: kPrimaryColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              )),
+                        ),
+                        EmailTextField(
+                          controller: controller.emailController,
+                          name: 'email',
+                          enabled: false,
+                          onTap: () {},
+                        ),
+                      ],
+                      if (controller.phoneNumberController.text.isNotEmpty) ...[
+                        const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text('Phone Number (Cannot be changed)',
+                              style: TextStyle(
+                                // color: kPrimaryColor,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                              )),
+                        ),
+                        // phone number field
+
+                        TextFormField(
+                          controller: controller.phoneNumberController,
+                          enabled: false,
+                          decoration: FieldDecoration(
+                            hintText: 'Enter your phone number',
+                            prefixIcon: const Padding(
+                              padding: EdgeInsets.only(left: 10, top: 14),
+                              child: Text(
+                                '+91  ',
+                                style: TextStyle(
+                                  color: kPrimaryColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ).kInputDecoration,
+                          style: const TextStyle(
+                            color: kPrimaryColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          enableSuggestions: true,
+                          enableInteractiveSelection: true,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(10),
+                          ],
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(
+                                  r'^(?:[+0]9)?[0-9]{10}$',
+                                  multiLine: false,
+                                ).hasMatch(value)) {
+                              return 'Please enter a valid phone number';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.phone,
+                        ),
+                      ]
                     ],
                   ),
                 )),

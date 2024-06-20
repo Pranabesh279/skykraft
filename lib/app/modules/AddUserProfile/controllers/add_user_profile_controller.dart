@@ -45,11 +45,16 @@ class AddUserProfileController extends GetxController {
     final photoUrl = await StorageBucketService.uploadAndGetDownloadUrl(
         imageFile.value!,
         path: 'profile/${_auth.userModel.value!.uid}');
-    final uesername = _auth.userModel.value!.uid!.substring(0, 5) +
-        nameController.text.substring(0, 5);
+    String? userName;
+    try {
+      userName =
+          "_${nameController.text.trim().split(' ').first.toLowerCase()}";
+    } catch (e) {
+      userName = "_${nameController.text.trim().toLowerCase()}";
+    }
     Map<String, dynamic> data = {
-      'name': nameController.text,
-      'username': uesername,
+      'name': nameController.text.trim(),
+      'username': userName,
       'photoUrl': photoUrl,
     };
     return data;

@@ -257,7 +257,7 @@ class CreateBookingView extends GetView<CreateBookingController> {
             margin: const EdgeInsets.only(right: 10),
             child: ProfileImage(
                 size: 30,
-                name: controller.user!.name!,
+                image: controller.user!.photoUrl!,
                 userRole: controller.user!.role!),
           ),
           title: Text('Request Booking',
