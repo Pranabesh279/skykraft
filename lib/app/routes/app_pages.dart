@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/AddUserProfile/bindings/add_user_profile_binding.dart';
+import '../modules/AddUserProfile/views/add_user_profile_view.dart';
 import '../modules/PrivacyPolicy/bindings/privacy_policy_binding.dart';
 import '../modules/PrivacyPolicy/views/privacy_policy_view.dart';
 import '../modules/TermsAndConditions/bindings/terms_and_conditions_binding.dart';
@@ -142,6 +144,11 @@ class AppPages {
       name: _Paths.AUTH_PHONE_VERIFY,
       page: () => const AuthPhoneVerifyView(),
       binding: AuthPhoneVerifyBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_USER_PROFILE,
+      page: () => const AddUserProfileView(),
+      binding: AddUserProfileBinding(),
     ),
   ];
 }

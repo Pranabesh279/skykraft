@@ -196,27 +196,6 @@ class EmailView extends GetView<LoginController> {
                         children: [
                           const Padding(
                             padding: EdgeInsets.all(8.0),
-                            child: Text('Username',
-                                style: TextStyle(
-                                  // color: kPrimaryColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                )),
-                          ),
-                          EmailTextField(
-                            controller: controller.usernameController,
-                            name: 'email',
-                            hintText: 'Enter your username',
-                            onTap: () {},
-                            validator: (p0) {
-                              if (p0!.isEmpty) {
-                                return 'Username is required';
-                              }
-                              return null;
-                            },
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.all(8.0),
                             child: Text('Email',
                                 style: TextStyle(
                                   // color: kPrimaryColor,

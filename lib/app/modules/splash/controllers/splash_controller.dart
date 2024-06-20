@@ -16,6 +16,14 @@ class SplashController extends GetxController {
     Future.delayed(const Duration(seconds: 3), () async {
       isLoading.value = false;
       if (_auth.userModel.value != null) {
+        if (_auth.userModel.value!.photoUrl == null) {
+          Get.offAllNamed(Routes.ADD_USER_PROFILE);
+          return;
+        }
+        if (_auth.userModel.value!.name == null) {
+          Get.offAllNamed(Routes.ADD_USER_PROFILE);
+          return;
+        }
         if (_auth.userModel.value!.role == null) {
           Get.offAllNamed(Routes.SET_USER_ROLE);
           return;

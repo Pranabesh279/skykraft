@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -131,16 +133,30 @@ class AuthPhoneVerifyView extends GetView<AuthPhoneVerifyController> {
               Obx(
                 () => controller.isSending.value
                     ? const SizedBox()
-                    : GradientButton(
-                        onPressed: () {
-                          // controller.continueClicked();
-                        },
-                        disable: !controller.codeSent.value,
-                        child: const Text(
-                          'Verify',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
+                    : controller.isVerifing.value
+                        ? const SizedBox(
+                            height: 16,
+                            width: 16,
+                            child: CircularProgressIndicator(
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                kPrimary,
+                              ),
+                              strokeWidth: 2,
+                            ),
+                          )
+                        : GradientButton(
+                            onPressed: () {
+                              log('verify clicked ${controller.codeSent.value}');
+                              if (controller.otp.value.length != 6) return;
+                              controller.continueClicked();
+                            },
+                            disable:
+                                controller.otp.value.length == 6 ? false : true,
+                            child: const Text(
+                              'Verify',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
               ),
             ],
           ),

@@ -56,7 +56,7 @@ class LoginController extends GetxController {
       );
       if (result == 'success') {
         isLoading.value = false;
-        Get.offAllNamed(Routes.SET_USER_ROLE);
+        Get.offAllNamed(Routes.ADD_USER_PROFILE);
       } else {
         isLoading.value = false;
         Get.snackbar('Error', result);

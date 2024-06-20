@@ -30,6 +30,12 @@
 	<string>location permission help us for improve booking experience and upadate your location on the map</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>location permission help us for improve booking experience and upadate your location on the map</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app needs access to your photo library to function.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to your photo library to function.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs access to your camera to function.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

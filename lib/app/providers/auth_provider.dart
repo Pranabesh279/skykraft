@@ -55,7 +55,7 @@ class AuthProvider extends GetxService {
     // });
   }
 
-  Future<bool> signInWithOTP(verId, smsCode) async {
+  Future<bool> signInWithOTP(verId, smsCode, {required String phone}) async {
     status.value = Status.Authenticating;
     PhoneAuthCredential credential =
         PhoneAuthProvider.credential(verificationId: verId, smsCode: smsCode);
@@ -63,14 +63,30 @@ class AuthProvider extends GetxService {
       UserCredential authResult = await _auth.signInWithCredential(credential);
       user.value = authResult.user;
       status.value = Status.Authenticated;
+      // return true;
+      Map<String, dynamic> data = {
+        'phone': phone,
+        'uid': authResult.user!.uid,
+        'isVerified': false,
+        'role': null,
+        'photoUrl': null,
+        'createdAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+        'isDeleted': false,
+        'location': null
+      };
+      // check if user is already registered
+      DocumentSnapshot snap =
+          await _firestore.collection('users').doc(authResult.user!.uid).get();
+      if (snap.exists) {
+        return true;
+      }
+      await _firestore.collection('users').doc(authResult.user!.uid).set(data);
+      await updateUserData(_auth.currentUser!.uid);
       return true;
     } on FirebaseAuthException catch (e) {
       status.value = Status.Unauthenticated;
-      // SnackBar(content: Text(e.message.toString()));
-      // snackbar(
-      //     title: 'Verification Error',
-      //     message: e.message.toString(),
-      //     type: SnackbarType.error);
+      log('Error signing in with OTP: ${e.message}', name: 'Auth');
       return false;
     }
   }
@@ -89,10 +105,7 @@ class AuthProvider extends GetxService {
             email: email, password: password!);
         if (user.user == null) return 'Some error occurred';
         Map<String, dynamic> data = {
-          'name': name,
           'email': email,
-          'username': username,
-          'phone': phone,
           'uid': user.user!.uid,
           'isVerified': false,
           'role': null,

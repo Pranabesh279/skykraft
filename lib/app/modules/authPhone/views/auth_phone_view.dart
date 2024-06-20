@@ -127,8 +127,7 @@ class AuthPhoneView extends GetView<AuthPhoneController> {
                     const Text('Login with Email ?'),
                     TextButton(
                       onPressed: () {
-                        const SnackBar(content: Text('Try Again'));
-                        // Get.toNamed(Routes.LOGIN);
+                        Get.toNamed(Routes.LOGIN);
                       },
                       child: const Text('Click Here'),
                     ),

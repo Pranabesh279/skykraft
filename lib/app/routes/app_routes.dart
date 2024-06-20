@@ -25,6 +25,7 @@ abstract class Routes {
   static const LOCATION_PERMISSION = _Paths.LOCATION_PERMISSION;
   static const AUTH_PHONE = _Paths.AUTH_PHONE;
   static const AUTH_PHONE_VERIFY = _Paths.AUTH_PHONE_VERIFY;
+  static const ADD_USER_PROFILE = _Paths.ADD_USER_PROFILE;
 }
 
 abstract class _Paths {
@@ -52,4 +53,5 @@ abstract class _Paths {
   static const LOCATION_PERMISSION = '/location-permission';
   static const AUTH_PHONE = '/auth-phone';
   static const AUTH_PHONE_VERIFY = '/auth-phone-verify';
+  static const ADD_USER_PROFILE = '/add-user-profile';
 }

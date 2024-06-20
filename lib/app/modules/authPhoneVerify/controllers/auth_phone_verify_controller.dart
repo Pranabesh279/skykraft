@@ -2,15 +2,17 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:get/get.dart';
 import 'package:skycraft/app/helpers/snackbar.dart';
+import 'package:skycraft/app/providers/auth_provider.dart' as auth;
+import 'package:skycraft/app/routes/app_pages.dart';
 
 class AuthPhoneVerifyController extends GetxController {
   Rx<String> phone = ''.obs;
   Rx<String?> countryCode = '+91'.obs;
   Rx<String> otp = ''.obs;
-  late Rx<User?> firebaseUser;
+  Rx<bool> isVerifing = false.obs;
+
   RxBool codeSent = RxBool(false);
   RxString verificationCode = RxString('');
   RxBool isSending = RxBool(false);
@@ -82,5 +84,23 @@ class AuthPhoneVerifyController extends GetxController {
         codeAutoRetrievalTimeout: autoTimeout);
   }
 
-  Future<void> verifyOTP() async {}
+  void continueClicked() async {
+    isVerifing.value = true;
+    try {
+      bool isVerifyedResult = await Get.find<auth.AuthProvider>()
+          .signInWithOTP(verificationCode.value, otp.value, phone: phone.value);
+      if (isVerifyedResult) {
+        Get.offAllNamed(Routes.ADD_USER_PROFILE);
+      } else {
+        snackbar(
+            title: 'Verification Error',
+            message: 'Please enter valid OTP',
+            type: SnackbarType.error);
+      }
+    } catch (e) {
+      log(e.toString());
+    } finally {
+      isVerifing.value = false;
+    }
+  }
 }
