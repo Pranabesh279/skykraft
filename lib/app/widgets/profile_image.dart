@@ -28,23 +28,23 @@ class ProfileImage extends StatelessWidget {
         ),
       ),
       // statusColor: Colors.green,
-      children: [
-        if (userRole != null && userRole == UserRole.dronePilot) ...[
-          Container(
-            height: 18,
-            width: 18,
-            padding: const EdgeInsets.all(2),
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: Image.asset(
-              'assets/icons/drone.png',
-              height: 14,
-              width: 14,
-            ),
-          ),
-        ]
+      children: const [
+        // if (userRole != null && userRole == UserRole.dronePilot) ...[
+        //   Container(
+        //     height: 18,
+        //     width: 18,
+        //     padding: const EdgeInsets.all(2),
+        //     decoration: const BoxDecoration(
+        //       shape: BoxShape.circle,
+        //       color: Colors.white,
+        //     ),
+        //     child: Image.asset(
+        //       'assets/icons/drone.png',
+        //       height: 14,
+        //       width: 14,
+        //     ),
+        //   ),
+        // ]
       ],
       child: ProfileAvatar(
         imageUrl: image,

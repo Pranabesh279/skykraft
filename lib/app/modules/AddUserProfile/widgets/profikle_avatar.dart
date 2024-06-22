@@ -25,7 +25,7 @@ class ProfileAvatar extends StatelessWidget {
           shape: BoxShape.circle,
           border: Border.all(
             color: isError == true ? Colors.red : kPrimary.withOpacity(0.1),
-            width: 2,
+            width: 0.1,
           ),
         ),
         child: CircleAvatar(

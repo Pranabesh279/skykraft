@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
+import 'package:skycraft/app/modules/discover/views/discover_view.dart';
 import 'package:skycraft/app/modules/home/views/home_view.dart';
 import 'package:skycraft/app/modules/profile/views/profile_view.dart';
 import 'package:skycraft/app/widgets/custom_tab_.dart';
@@ -56,19 +57,15 @@ class DashboardView extends GetView<DashboardController> {
           body: Obx(
             () => IndexedStack(
               index: controller.selectedIndex.value,
-              children: const [
-                HomeView(),
-                // Container(
-                //   child: const Center(
-                //     child: Text('Discover Coming Soon'),
-                //   ),
-                // ),
-                // Container(
-                //   child: const Center(
-                //     child: Text('Flash Coming Soon'),
-                //   ),
-                // ),
-                ProfileView(),
+              children: [
+                const DiscoverView(),
+                const HomeView(),
+                Container(
+                  child: const Center(
+                    child: Text('Flash Coming Soon'),
+                  ),
+                ),
+                const ProfileView(),
               ],
             ),
           ),

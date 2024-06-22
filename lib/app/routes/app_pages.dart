@@ -28,6 +28,7 @@ import '../modules/discover/bindings/discover_binding.dart';
 import '../modules/discover/views/discover_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
+import '../modules/home/bindings/home_binding.dart';
 import '../modules/locationPermission/bindings/location_permission_binding.dart';
 import '../modules/locationPermission/views/location_permission_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -40,6 +41,8 @@ import '../modules/setUserRole/bindings/set_user_role_binding.dart';
 import '../modules/setUserRole/views/set_user_role_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/uploadMedia/bindings/upload_media_binding.dart';
+import '../modules/uploadMedia/views/upload_media_view.dart';
 
 part 'app_routes.dart';
 
@@ -56,10 +59,15 @@ class AppPages {
       binding: LoginBinding(),
     ),
     GetPage(
-      name: _Paths.DASHBOARD,
-      page: () => const DashboardView(),
-      binding: DashboardBinding(),
-    ),
+        name: _Paths.DASHBOARD,
+        page: () => const DashboardView(),
+        // binding: DashboardBinding(),
+        bindings: [
+          DashboardBinding(),
+          HomeBinding(),
+          ProfileBinding(),
+          DiscoverBinding()
+        ]),
     GetPage(
       name: _Paths.DISCOVER,
       page: () => const DiscoverView(),
@@ -149,6 +157,11 @@ class AppPages {
       name: _Paths.ADD_USER_PROFILE,
       page: () => const AddUserProfileView(),
       binding: AddUserProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPLOAD_MEDIA,
+      page: () => const UploadMediaView(),
+      binding: UploadMediaBinding(),
     ),
   ];
 }

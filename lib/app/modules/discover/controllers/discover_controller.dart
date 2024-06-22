@@ -1,11 +1,6 @@
 import 'package:get/get.dart';
+import 'package:skycraft/app/modules/profile/controllers/profile_controller.dart';
 
 class DiscoverController extends GetxController {
-  //TODO: Implement DiscoverController
-
-  final count = 0.obs;
-
-
-
-  void increment() => count.value++;
+  ProfileController profileController = Get.find<ProfileController>();
 }

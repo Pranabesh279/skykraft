@@ -64,13 +64,6 @@ class AuthPhoneVerifyController extends GetxController {
           type: SnackbarType.error);
     }
 
-    smsSent(String verId, [forceResend]) {
-      codeSent.value = true;
-      isSending.value = false;
-      verificationCode.value = verId;
-      _startTimer();
-    }
-
     autoTimeout(String verId) {
       verificationCode.value = verId;
     }
@@ -80,8 +73,13 @@ class AuthPhoneVerifyController extends GetxController {
         timeout: const Duration(seconds: 60),
         verificationCompleted: verified,
         verificationFailed: verificationfailed,
-        codeSent: smsSent,
-        codeAutoRetrievalTimeout: autoTimeout);
+        codeAutoRetrievalTimeout: autoTimeout,
+        codeSent: (String verificationId, int? forceResendingToken) {
+          codeSent.value = true;
+          isSending.value = false;
+          verificationCode.value = verificationId;
+          _startTimer();
+        });
   }
 
   void continueClicked() async {

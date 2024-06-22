@@ -25,7 +25,7 @@ class DashboardController extends GetxController {
     userData.value = authProvider.userModel.value;
     if (userData.value?.location != null) {
       location = Location();
-      updatePosition(userData.value?.location);
+      // updatePosition(userData.value?.location);
     }
   }
 
@@ -34,8 +34,8 @@ class DashboardController extends GetxController {
       foundation.defaultTargetPlatform == foundation.TargetPlatform.iOS;
   List<String> icons = [
     'assets/icons/tabler_home.png',
-    // 'assets/icons/iconamoon_discover-light.png',
-    // 'assets/icons/typcn_flash-outline.png',
+    'assets/icons/iconamoon_discover-light.png',
+    'assets/icons/typcn_flash-outline.png',
     'assets/icons/gg_profile.png',
   ];
   final List<GetPage> _getPages = [];
