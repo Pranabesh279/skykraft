@@ -90,10 +90,11 @@ class AuthPhoneVerifyController extends GetxController {
       if (isVerifyedResult) {
         Get.offAllNamed(Routes.ADD_USER_PROFILE);
       } else {
-        snackbar(
-            title: 'Verification Error',
-            message: 'Please enter valid OTP',
-            type: SnackbarType.error);
+        // snackbar(
+        //   title: 'Verification Error',
+        //   message: 'Please enter valid OTP',
+        //   type: SnackbarType.error,
+        // );
       }
     } catch (e) {
       log(e.toString());

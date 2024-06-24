@@ -42,8 +42,8 @@ class UserModel {
       isVerified: data['isVerified'],
       role: data['role'],
       photoUrl: data['photoUrl'],
-      createdAt: data['createdAt'].toDate(),
-      updatedAt: data['updatedAt'].toDate(),
+      createdAt: data['createdAt']?.toDate(),
+      updatedAt: data['updatedAt']?.toDate(),
       isDeleted: data['isDeleted'],
       location: data['location'],
       walletId: data['walletId'],
@@ -67,5 +67,25 @@ class UserModel {
       walletId: snapshot['walletId'],
       level: snapshot['level'],
     );
+  }
+
+  // toMap() {
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'email': email,
+      'username': username,
+      'phone': phone,
+      'uid': uid,
+      'isVerified': isVerified,
+      'role': role,
+      'photoUrl': photoUrl,
+      'createdAt': createdAt,
+      'updatedAt': updatedAt,
+      'isDeleted': isDeleted,
+      'location': location,
+      'walletId': walletId,
+      'level': level,
+    };
   }
 }

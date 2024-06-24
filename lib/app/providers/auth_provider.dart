@@ -79,7 +79,8 @@ class AuthProvider extends GetxService {
       DocumentSnapshot snap =
           await _firestore.collection('users').doc(authResult.user!.uid).get();
       if (snap.exists) {
-        return true;
+        Get.offAllNamed(AppPages.MAIN);
+        return false;
       }
       await _firestore.collection('users').doc(authResult.user!.uid).set(data);
       await updateUserData(_auth.currentUser!.uid);

@@ -49,13 +49,19 @@ class PostProvider extends GetxService {
   }
 
   // get all posts
-  Future getPosts() async {
+  Future<List<Posts>?> getPosts() async {
     try {
-      final data = await _firestore.collection('posts').get();
-      return data.docs;
+      final data = await _firestore
+          .collection('posts')
+          // query by date
+          .orderBy('createdAt', descending: true)
+          .get();
+
+      return data.docs.map((e) => Posts.fromSnap(e)).toList();
     } catch (err) {
       Get.snackbar('Error', err.toString());
     }
+    return null;
   }
 
   Stream<int> getPostsCountStreamByUser(String uid) {

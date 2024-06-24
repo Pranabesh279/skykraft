@@ -12,7 +12,20 @@
           "package_name": "com.trugotech.skyKraft"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "483329949094-4eimij4k0b769qf8eatvmain3j4sje1m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trugotech.skyKraft",
+            "certificate_hash": "43ecd661ef5047d43073fcd2e68c11c49c6ea1e7"
+          }
+        },
+        {
+          "client_id": "483329949094-vkie2ogjkl4feoqhq2rv03749q682d8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBWMUyUSGSVbd29DPgXjY1VUHWylEOdG14"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483329949094-vkie2ogjkl4feoqhq2rv03749q682d8p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.skykraft.SkyKraftUserApp"
+              }
+            }
+          ]
         }
       }
     }

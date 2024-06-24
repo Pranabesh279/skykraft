@@ -1,23 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:skycraft/app/models/auth/user_model.dart';
 
 class Posts {
-  final String id;
-  final String userId;
-  final String title;
-  final String url;
-  final String fileType;
-  final String place;
-  final int price;
-  final GeoPoint location;
+  final String? id;
+  final String? userId;
+  final String? caption;
+  final String? url;
+  final String? fileType;
+  final String? place;
+  final int? price;
+  final GeoPoint? location;
+  final UserModel? user;
+  final DateTime? createdAt;
   Posts({
     required this.id,
     required this.userId,
-    required this.title,
+    required this.caption,
     required this.url,
     required this.fileType,
     required this.place,
     required this.location,
     this.price = 0,
+    this.user,
+    this.createdAt,
   });
 
   factory Posts.fromSnap(DocumentSnapshot snap) {
@@ -25,12 +30,14 @@ class Posts {
     return Posts(
       id: snap.id,
       userId: snapshot['uid'],
-      title: snapshot['details'],
+      caption: snapshot['caption'],
       url: snapshot['url'],
       fileType: snapshot['fileType'],
       place: snapshot['place'],
       location: snapshot['location'],
-      price: snapshot['price'],
+      price: int.tryParse(snapshot['price']) ?? 0,
+      createdAt: snapshot['createdAt']?.toDate(),
+      user: UserModel.fromMap(snapshot['user']),
     );
   }
 }

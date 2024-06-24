@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
+import 'package:skycraft/app/modules/discover/widgets/post_card.dart';
 import 'package:skycraft/app/modules/uploadMedia/bindings/upload_media_binding.dart';
 import 'package:skycraft/app/modules/uploadMedia/views/upload_media_view.dart';
 import 'package:skycraft/app/routes/app_pages.dart';
@@ -57,16 +58,20 @@ class DiscoverView extends GetView<DiscoverController> {
               },
               child: Container(
                 height: 60,
+                margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Colors.grey[300]!,
-                      width: 1,
+                  // borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: const Offset(0, 1),
                     ),
-                  ),
+                  ],
                 ),
                 child: Row(
                   children: [
@@ -109,6 +114,31 @@ class DiscoverView extends GetView<DiscoverController> {
                     const Icon(Icons.add_a_photo_outlined),
                   ],
                 ),
+              ),
+            ),
+            // posts
+            Expanded(
+              child: RefreshIndicator(
+                onRefresh: () {
+                  return controller.getPosts();
+                },
+                child: ListView(children: [
+                  Obx(
+                    () => controller.isLoading.value
+                        ? const Center(
+                            child: LinearProgressIndicator(),
+                          )
+                        : Column(
+                            children: controller.posts.value
+                                .map(
+                                  (post) => PostCard(
+                                    post: post,
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                  ),
+                ]),
               ),
             ),
           ],
