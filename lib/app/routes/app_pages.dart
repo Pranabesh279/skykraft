@@ -20,6 +20,8 @@ import '../modules/booking_details/bindings/booking_details_binding.dart';
 import '../modules/booking_details/views/booking_details_view.dart';
 import '../modules/booking_list/bindings/booking_list_binding.dart';
 import '../modules/booking_list/views/booking_list_view.dart';
+import '../modules/chatRoom/bindings/chat_room_binding.dart';
+import '../modules/chatRoom/views/chat_room_view.dart';
 import '../modules/create_booking/bindings/create_booking_binding.dart';
 import '../modules/create_booking/views/create_booking_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -33,6 +35,8 @@ import '../modules/locationPermission/bindings/location_permission_binding.dart'
 import '../modules/locationPermission/views/location_permission_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/email_view.dart';
+import '../modules/mediaviewer/bindings/mediaviewer_binding.dart';
+import '../modules/mediaviewer/views/mediaviewer_view.dart';
 import '../modules/permissions/bindings/permissions_binding.dart';
 import '../modules/permissions/views/permissions_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -162,6 +166,16 @@ class AppPages {
       name: _Paths.UPLOAD_MEDIA,
       page: () => const UploadMediaView(),
       binding: UploadMediaBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHAT_ROOM,
+      page: () => const ChatRoomView(),
+      binding: ChatRoomBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEDIAVIEWER,
+      page: () => const MediaviewerView(),
+      binding: MediaviewerBinding(),
     ),
   ];
 }

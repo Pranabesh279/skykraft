@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/providers/booking_provider.dart';
+import 'package:skycraft/app/providers/chat_room_provider.dart';
 import 'package:skycraft/app/providers/post_provider.dart';
 import 'package:skycraft/app/providers/users_provider.dart';
 import 'package:skycraft/app/providers/wallet_provider.dart';
@@ -29,6 +30,7 @@ Future<void> initService() async {
   await Get.putAsync<UserProvider>(() async => UserProvider());
   await Get.putAsync<BookingProvider>(() async => BookingProvider());
   await Get.putAsync<PostProvider>(() async => PostProvider());
+  await Get.putAsync<ChatRoomProvider>(() async => ChatRoomProvider());
   log('service started');
 }
 

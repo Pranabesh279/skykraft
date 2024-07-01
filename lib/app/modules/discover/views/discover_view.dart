@@ -34,6 +34,17 @@ class DiscoverView extends GetView<DiscoverController> {
           ),
         ),
         leadingWidth: 120,
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed(Routes.CHAT_ROOM);
+            },
+            icon: const ImageIcon(
+              AssetImage('assets/icons/eva_chat-outline.png'),
+              color: kPrimary,
+            ),
+          )
+        ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(0),
           child: Container(

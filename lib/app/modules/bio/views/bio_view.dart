@@ -36,7 +36,7 @@ class BioView extends GetView<BioController> {
                 children: [
                   const SizedBox(height: 10),
                   ProfileImage(
-                    image: controller.user!.name!,
+                    image: controller.user!.photoUrl!,
                     userRole: controller.user!.role!,
                     size: 60,
                   ),
@@ -144,15 +144,19 @@ class BioView extends GetView<BioController> {
                           // ),
                           // const SizedBox(width: 10),
                           // // message button
-                          // Expanded(
-                          //   child: GradientButton(
-                          //     onPressed: () {},
-                          //     child: const Text('Message',
-                          //         style:
-                          //             TextStyle(fontSize: 16, color: Colors.white)),
-                          //   ),
-                          // ),
-                          // const SizedBox(width: 10),
+                          Expanded(
+                            child: Obx(() => GradientButton(
+                                  isLoading:
+                                      controller.isCreatingChatRoom.value,
+                                  onPressed: () {
+                                    controller.createChatRoom();
+                                  },
+                                  child: const Text('Message',
+                                      style: TextStyle(
+                                          fontSize: 16, color: Colors.white)),
+                                )),
+                          ),
+                          const SizedBox(width: 10),
                           // book request button
                           Expanded(
                             child: GradientButton(
