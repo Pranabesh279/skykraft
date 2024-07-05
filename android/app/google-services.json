@@ -48,6 +48,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483329949094:android:346e9b0b0802870bada367",
+        "android_client_info": {
+          "package_name": "io.skyKraft.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483329949094-vkie2ogjkl4feoqhq2rv03749q682d8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWMUyUSGSVbd29DPgXjY1VUHWylEOdG14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483329949094-vkie2ogjkl4feoqhq2rv03749q682d8p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "in.skykraft.SkyKraftUserApp"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

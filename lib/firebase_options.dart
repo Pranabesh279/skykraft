@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBWMUyUSGSVbd29DPgXjY1VUHWylEOdG14',
-    appId: '1:483329949094:android:26046a7b180dd0e1ada367',
+    appId: '1:483329949094:android:346e9b0b0802870bada367',
     messagingSenderId: '483329949094',
     projectId: 'eprovide-fa8a0',
     storageBucket: 'eprovide-fa8a0.appspot.com',
@@ -67,6 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '483329949094',
     projectId: 'eprovide-fa8a0',
     storageBucket: 'eprovide-fa8a0.appspot.com',
+    androidClientId: '483329949094-4eimij4k0b769qf8eatvmain3j4sje1m.apps.googleusercontent.com',
+    iosClientId: '483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik.apps.googleusercontent.com',
     iosBundleId: 'in.skykraft.SkyKraftUserApp',
   );
 
