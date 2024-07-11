@@ -47,6 +47,8 @@ import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 import '../modules/uploadMedia/bindings/upload_media_binding.dart';
 import '../modules/uploadMedia/views/upload_media_view.dart';
+import '../modules/view_chat/bindings/view_chat_binding.dart';
+import '../modules/view_chat/views/view_chat_view.dart';
 
 part 'app_routes.dart';
 
@@ -176,6 +178,11 @@ class AppPages {
       name: _Paths.MEDIAVIEWER,
       page: () => const MediaviewerView(),
       binding: MediaviewerBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIEW_CHAT,
+      page: () => const ViewChatView(),
+      binding: ViewChatBinding(),
     ),
   ];
 }

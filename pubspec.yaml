@@ -3,7 +3,7 @@ description: "A new Flutter project."
 
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
-version: 5.1.0+1
+version: 5.3.0+5
 
 environment:
   sdk: ">=3.3.4 <4.0.0"
@@ -34,6 +34,10 @@ dependencies:
   video_player: ^2.8.7
   fluttertagger: ^2.0.0
   flutter_reaction_button: ^3.0.0+3
+  flutter_chat_ui: 1.6.13
+  flutter_chat_types: ^3.6.2
+  grouped_list: ^6.0.0
+  flutter_chat_bubble: ^2.0.2
 
 dev_dependencies:
   flutter_test:

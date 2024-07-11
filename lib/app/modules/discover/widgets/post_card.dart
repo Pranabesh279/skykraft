@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:developer';
+
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
 import 'package:skycraft/app/models/posts/post_data_model.dart';
@@ -30,6 +34,7 @@ class PostCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             children: [
@@ -68,10 +73,7 @@ class PostCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          SizedBox(
-              height: 200,
-              width: double.infinity,
-              child: buildImage(post.url ?? "", post.fileType ?? "")),
+          SizedBox(child: buildImage(post.url ?? "", post.fileType ?? "")),
           const SizedBox(height: 10),
           Row(
             children: [
@@ -127,7 +129,37 @@ class PostCard extends StatelessWidget {
     ];
     final List<String> videoExtensions = ['mp4', 'mov', 'avi', 'flv'];
     if (imageExtensions.contains(fileType)) {
-      return Image.network(url, fit: BoxFit.cover);
+      Image image = Image.network(url);
+      Completer<ui.Image> completer = Completer<ui.Image>();
+      image.image.resolve(const ImageConfiguration()).addListener(
+        ImageStreamListener(
+          (ImageInfo info, bool _) {
+            completer.complete(info.image);
+          },
+        ),
+      );
+      return FutureBuilder<ui.Image>(
+        future: completer.future,
+        builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            log('height: ${snapshot.data!.height} width: ${snapshot.data!.width}');
+            return Column(
+              children: [
+                Text(
+                  'height: ${snapshot.data!.height} width: ${snapshot.data!.width}',
+                ),
+                SizedBox(
+                  height: snapshot.data!.height.toDouble(),
+                  width: snapshot.data!.width.toDouble(),
+                  child: Image.network(url),
+                ),
+              ],
+            );
+          } else {
+            return const SizedBox();
+          }
+        },
+      );
     } else if (videoExtensions.contains(fileType)) {
       return VideoPlayerNetwork(
         videoFile: url,

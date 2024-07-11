@@ -29,6 +29,7 @@ abstract class Routes {
   static const UPLOAD_MEDIA = _Paths.UPLOAD_MEDIA;
   static const CHAT_ROOM = _Paths.CHAT_ROOM;
   static const MEDIAVIEWER = _Paths.MEDIAVIEWER;
+  static const VIEW_CHAT = _Paths.VIEW_CHAT;
 }
 
 abstract class _Paths {
@@ -60,4 +61,5 @@ abstract class _Paths {
   static const UPLOAD_MEDIA = '/upload-media';
   static const CHAT_ROOM = '/chat-room';
   static const MEDIAVIEWER = '/mediaviewer';
+  static const VIEW_CHAT = '/view-chat';
 }

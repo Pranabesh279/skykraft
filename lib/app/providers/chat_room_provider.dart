@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_disposable.dart';
 import 'package:skycraft/app/models/chat/chat_room.dart';
+import 'package:skycraft/app/models/chat/message_data.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ChatRoomProvider extends GetxService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   createChatRoom(Map<String, dynamic> map) async {
     final String? roomId = map['roomId'];
 
@@ -51,5 +53,23 @@ class ChatRoomProvider extends GetxService {
     final QuerySnapshot result =
         await chatRoom.where('members', arrayContains: userId).get();
     return result.docs.map((e) => ChatRoomMetadata.fromSnap(e)).toList();
+  }
+
+  Stream<List<ChatMessage>> getChatRoom(String roomId) {
+    CollectionReference chatRoom = _firestore.collection('chatRooms');
+    return chatRoom
+        .doc(roomId)
+        .collection('messages')
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map(
+            (event) => event.docs.map((e) => ChatMessage.fromSnap(e)).toList());
+  }
+
+  Future<void> sendMessage(String roomId,
+      {required Map<String, dynamic> message}) async {
+    CollectionReference chatRoom = _firestore.collection('chatRooms');
+    message['createdAt'] = FieldValue.serverTimestamp();
+    await chatRoom.doc(roomId).collection('messages').add(message);
   }
 }

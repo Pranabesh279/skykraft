@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:skycraft/app/models/auth/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

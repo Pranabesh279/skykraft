@@ -6,6 +6,9 @@ import 'package:intl/intl.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/models/auth/user_model.dart';
 import 'package:skycraft/app/models/chat/chat_room.dart';
+import 'package:skycraft/app/modules/view_chat/bindings/view_chat_binding.dart';
+import 'package:skycraft/app/modules/view_chat/views/view_chat_view.dart';
+import 'package:skycraft/app/routes/app_pages.dart';
 import 'package:skycraft/app/widgets/profile_image.dart';
 
 import 'package:super_cupertino_navigation_bar/super_cupertino_navigation_bar.dart';
@@ -43,6 +46,14 @@ class ChatRoomView extends GetView<ChatRoomController> {
                   UserModel user = getChatOpponentData(
                       controller.chatRooms.value[index], id);
                   return ListTile(
+                    onTap: () {
+                      Get.to(
+                        () => const ViewChatView(),
+                        binding: ViewChatBinding(
+                          chatRoomMetadata: controller.chatRooms.value[index],
+                        ),
+                      );
+                    },
                     leading: ProfileImage(
                       image: user.photoUrl ?? '',
                       size: 50,

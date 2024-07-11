@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,10 +39,15 @@ class _VideoPlayerAssetsState extends State<VideoPlayerNetwork> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: double.minPositive,
-      width: double.minPositive,
+      width: _controller.value.size.width,
+      height: _controller.value.size.height,
       child: Stack(
         children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+                'height: ${_controller.value.size.height} width: ${_controller.value.size.width}'),
+          ),
           Container(
             child: _controller.value.isInitialized
                 ? AspectRatio(
