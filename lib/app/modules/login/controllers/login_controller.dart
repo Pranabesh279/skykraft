@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:skycraft/app/helpers/dailog_helper.dart';
+import 'package:skycraft/app/models/auth/user_model.dart';
 import 'package:skycraft/app/modules/locationPermission/controllers/location_permission_controller.dart';
 import 'package:skycraft/app/modules/login/views/otp_view.dart';
 import 'package:skycraft/app/providers/auth_provider.dart';
@@ -11,7 +13,7 @@ class LoginController extends GetxController {
   final phoneFormKey = GlobalKey<FormState>();
   final otpFormKey = GlobalKey<FormState>();
   final emailFormKey = GlobalKey<FormState>();
-  RxBool isAggred = false.obs;
+  RxBool isAggred = true.obs;
 
   // final scaffoldKey = GlobalKey<ScaffoldState>();
   FocusNode otpFocusNode = FocusNode();
@@ -24,7 +26,7 @@ class LoginController extends GetxController {
   TextEditingController usernameController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
-  RxBool isChecked = RxBool(false);
+  RxBool isChecked = RxBool(true);
   RxBool isOtpSent = RxBool(false);
 
   RxBool isViewSignUp = RxBool(false);
@@ -84,6 +86,34 @@ class LoginController extends GetxController {
         isLoading.value = false;
         Get.snackbar('Error', result);
       }
+    }
+  }
+
+  Future signInWithGoogle() async {
+    DialogHelper.showLoading();
+    try {
+      bool result = await _auth.signInWithGoogle();
+      if (result == true) {
+        UserModel? userModel = _auth.userModel.value;
+        if (userModel?.name == null || userModel?.name == '') {
+          Get.offAllNamed(Routes.ADD_USER_PROFILE);
+        } else if (userModel?.role == null || userModel?.role == '') {
+          Get.offAllNamed(Routes.SET_USER_ROLE);
+        } else {
+          bool isLocationPermission =
+              await LocationService.checkLocationPermission();
+          if (isLocationPermission) {
+            Get.offAllNamed(AppPages.MAIN);
+          } else {
+            Get.offAllNamed(Routes.LOCATION_PERMISSION);
+          }
+        }
+      } else {
+        isLoading.value = false;
+      }
+    } finally {
+      DialogHelper.hideLoading();
+      // Get.offAll(Routes.SPLASH);
     }
   }
 }

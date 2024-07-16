@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/widgets/buttons/gradient_button.dart';
 import 'package:skycraft/app/widgets/email_field.dart';
@@ -152,28 +154,14 @@ class EmailView extends GetView<LoginController> {
                             ),
                           ),
                           const SizedBox(height: 40),
-                          Row(
-                            children: [
-                              Obx(
-                                () => Checkbox(
-                                  value: controller.isChecked.value,
-                                  onChanged: (value) {
-                                    controller.isChecked.value = value!;
-                                  },
-                                ),
-                              ),
-                              Expanded(
-                                  child: privacyPolicyLinkAndTermsOfService()),
-                            ],
-                          ),
                           Obx(
                             () => GradientButton(
                                 onPressed: () {
-                                  if (!controller.isChecked.value) {
-                                    Get.snackbar('Hey!',
-                                        'Please agree to the terms of service and privacy policy');
-                                    return;
-                                  }
+                                  // if (!controller.isChecked.value) {
+                                  //   Get.snackbar('Hey!',
+                                  //       'Please agree to the terms of service and privacy policy');
+                                  //   return;
+                                  // }
                                   controller.signIn();
                                 },
                                 disable: !controller.isChecked.value,
@@ -208,54 +196,7 @@ class EmailView extends GetView<LoginController> {
                             name: 'email',
                             onTap: () {},
                           ),
-                          // const Padding(
-                          //   padding: EdgeInsets.all(8.0),
-                          //   child: Text('Phone Number',
-                          //       style: TextStyle(
-                          //         // color: kPrimaryColor,
-                          //         fontSize: 12,
-                          //         fontWeight: FontWeight.w500,
-                          //       )),
-                          // ),
-                          // // phone number field
-                          // TextFormField(
-                          //   controller: controller.phoneNumberController,
-                          //   decoration: FieldDecoration(
-                          //     hintText: 'Enter your phone number',
-                          //     prefixIcon: const Padding(
-                          //       padding: EdgeInsets.only(left: 10, top: 14),
-                          //       child: Text(
-                          //         '+91  ',
-                          //         style: TextStyle(
-                          //           color: kPrimaryColor,
-                          //           fontSize: 16,
-                          //           fontWeight: FontWeight.w500,
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ).kInputDecoration,
-                          //   style: const TextStyle(
-                          //     color: kPrimaryColor,
-                          //     fontSize: 16,
-                          //     fontWeight: FontWeight.w500,
-                          //   ),
-                          //   enableSuggestions: true,
-                          //   enableInteractiveSelection: true,
-                          //   inputFormatters: [
-                          //     LengthLimitingTextInputFormatter(10),
-                          //   ],
-                          //   validator: (value) {
-                          //     if (value!.isEmpty ||
-                          //         !RegExp(
-                          //           r'^(?:[+0]9)?[0-9]{10}$',
-                          //           multiLine: false,
-                          //         ).hasMatch(value)) {
-                          //       return 'Please enter a valid phone number';
-                          //     }
-                          //     return null;
-                          //   },
-                          //   keyboardType: TextInputType.phone,
-                          // ),
+
                           const Padding(
                             padding: EdgeInsets.all(8.0),
                             child: Text('Password',
@@ -293,30 +234,17 @@ class EmailView extends GetView<LoginController> {
                           //
 
                           const SizedBox(height: 40),
-                          Row(
-                            children: [
-                              Obx(
-                                () => Checkbox(
-                                  value: controller.isChecked.value,
-                                  onChanged: (value) {
-                                    controller.isChecked.value = value!;
-                                  },
-                                ),
-                              ),
-                              Expanded(
-                                  child: privacyPolicyLinkAndTermsOfService()),
-                            ],
-                          ),
+
                           Obx(
                             () => GradientButton(
                                 isLoading: controller.isLoading.value,
                                 disable: !controller.isChecked.value,
                                 onPressed: () {
-                                  if (!controller.isChecked.value) {
-                                    Get.snackbar('Hey!',
-                                        'Please agree to the terms of service and privacy policy');
-                                    return;
-                                  }
+                                  // if (!controller.isChecked.value) {
+                                  //   Get.snackbar('Hey!',
+                                  //       'Please agree to the terms of service and privacy policy');
+                                  //   return;
+                                  // }
                                   controller.signUp();
                                 },
                                 padding:
@@ -333,34 +261,67 @@ class EmailView extends GetView<LoginController> {
                         ],
                       )),
                 const SizedBox(height: 20),
-                // const Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     Text(
-                //       'Terms of Service',
-                //       style: TextStyle(
-                //         fontSize: 12,
-                //         fontWeight: FontWeight.w500,
-                //       ),
-                //     ),
-                //     SizedBox(width: 10),
-                //     Text(
-                //       'and',
-                //       style: TextStyle(
-                //         fontSize: 12,
-                //         fontWeight: FontWeight.w500,
-                //       ),
-                //     ),
-                //     SizedBox(width: 10),
-                //     Text(
-                //       'Privacy Policy',
-                //       style: TextStyle(
-                //         fontSize: 12,
-                //         fontWeight: FontWeight.w500,
-                //       ),
-                //     ),
-                //   ],
-                // ),
+                SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: 0.8,
+                          color: kGreyColor,
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          'or',
+                          style: TextStyle(
+                            color: kGreyColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 0.8,
+                          color: kGreyColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: SignInButton(
+                    shape: ShapeBorder.lerp(
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0)),
+                        RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0)),
+                        0.5),
+                    Buttons.google,
+                    onPressed: () {
+                      controller.signInWithGoogle();
+                    },
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    // Obx(
+                    //   () => Checkbox(
+                    //     value: controller.isChecked.value,
+                    //     onChanged: (value) {
+                    //       controller.isChecked.value = value!;
+                    //     },
+                    //   ),
+                    // ),
+                    Expanded(child: privacyPolicyLinkAndTermsOfService()),
+                  ],
+                ),
               ],
             ),
           ),

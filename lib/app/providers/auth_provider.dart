@@ -236,4 +236,69 @@ class AuthProvider extends GetxService {
     await _firestore.collection('users').doc(uid).update(data);
     userModel.value = await getUserDetails(uid);
   }
+
+  // google sign in
+  Future<bool> signInWithGoogle() async {
+    try {
+      final GoogleAuthProvider googleProvider = GoogleAuthProvider();
+
+      final UserCredential userCredential =
+          await _auth.signInWithProvider(googleProvider);
+
+      // check if user is already registered
+      bool isExist = await isUserExist(userCredential.user!.uid);
+      if (isExist) {
+        Get.offAllNamed(AppPages.MAIN);
+        return false;
+      }
+
+      Map<String, dynamic> data = {
+        'email': userCredential.user?.email,
+        'uid': userCredential.user!.uid,
+        'isVerified': false,
+        'role': null,
+        'name': userCredential.user?.displayName,
+        'username': getUserMName(userCredential.user?.displayName),
+        'photoUrl': userCredential.user?.photoURL,
+        'createdAt': FieldValue.serverTimestamp(),
+        'updatedAt': FieldValue.serverTimestamp(),
+        'isDeleted': false,
+        'location': null
+      };
+      await _firestore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .set(data);
+      user.value = userCredential.user;
+      await updateUserData(userCredential.user!.uid);
+      return true;
+    } catch (e) {
+      log('Error signing in with Google: ${e.toString()}', name: 'Auth');
+      return false;
+    }
+  }
+
+  String? getUserMName(String? name) {
+    if (name == null) return null;
+    String? userName;
+    try {
+      userName = "_${name.trim().split(' ').first.toLowerCase()}";
+    } catch (e) {
+      userName = "_${name.trim().toLowerCase()}";
+    }
+    return userName;
+  }
+
+  Future<bool> isUserExist(String uid) async {
+    try {
+      await _firestore.collection('users').doc(uid).get().then((value) {
+        if (value.exists) {
+          return true;
+        }
+      });
+      return false;
+    } catch (e) {
+      return false;
+    }
+  }
 }

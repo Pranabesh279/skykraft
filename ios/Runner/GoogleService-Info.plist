@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik.apps.googleusercontent.com</string>
+	<string>167742209744-ifl548aph02kiqh8p3kc3csf1kt01uvl.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik</string>
+	<string>com.googleusercontent.apps.167742209744-ifl548aph02kiqh8p3kc3csf1kt01uvl</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>483329949094-4eimij4k0b769qf8eatvmain3j4sje1m.apps.googleusercontent.com</string>
+	<string>167742209744-3g3bp5f6vu6l0h67c132a8rjf56o60kr.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCN7lw16mTfMwxPp9oOmgxQhfYzgrTUsBo</string>
+	<string>AIzaSyCPXH3iGabrDu7qDyJsOYUQ73Kr0ZOJgTs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>483329949094</string>
+	<string>167742209744</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>in.skykraft.SkyKraftUserApp</string>
 	<key>PROJECT_ID</key>
-	<string>eprovide-fa8a0</string>
+	<string>skykraft-e7fb7</string>
 	<key>STORAGE_BUCKET</key>
-	<string>eprovide-fa8a0.appspot.com</string>
+	<string>skykraft-e7fb7.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:483329949094:ios:836e7049385da4ecada367</string>
+	<string>1:167742209744:ios:cd5cef83bd99083669e8d5</string>
 </dict>
 </plist>

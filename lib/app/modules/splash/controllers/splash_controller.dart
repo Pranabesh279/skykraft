@@ -36,7 +36,7 @@ class SplashController extends GetxController {
           Get.offAllNamed(Routes.LOCATION_PERMISSION);
         }
       } else {
-        Get.offAllNamed(Routes.AUTH_PHONE);
+        Get.offAllNamed(Routes.LOGIN);
       }
     });
   }

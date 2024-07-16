@@ -30,7 +30,10 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -45,41 +48,30 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyC0xF39u8Tj7IbGd84qJUwVGXCC50IeQuo',
-    appId: '1:167742209744:web:f5f18e0f73826c4a69e8d5',
+    appId: '1:167742209744:web:94ef92da4fba7ce369e8d5',
     messagingSenderId: '167742209744',
     projectId: 'skykraft-e7fb7',
     authDomain: 'skykraft-e7fb7.firebaseapp.com',
     storageBucket: 'skykraft-e7fb7.appspot.com',
-    measurementId: 'G-M24ZE1PQZH',
+    measurementId: 'G-PG7ZEKKS0L',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBWMUyUSGSVbd29DPgXjY1VUHWylEOdG14',
-    appId: '1:483329949094:android:346e9b0b0802870bada367',
-    messagingSenderId: '483329949094',
-    projectId: 'eprovide-fa8a0',
-    storageBucket: 'eprovide-fa8a0.appspot.com',
+    apiKey: 'AIzaSyDBeLu2kXtPEhZ5Nv9XbhQtXbdIGUv4IyM',
+    appId: '1:167742209744:android:a71f9f835b01a72269e8d5',
+    messagingSenderId: '167742209744',
+    projectId: 'skykraft-e7fb7',
+    storageBucket: 'skykraft-e7fb7.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCN7lw16mTfMwxPp9oOmgxQhfYzgrTUsBo',
-    appId: '1:483329949094:ios:836e7049385da4ecada367',
-    messagingSenderId: '483329949094',
-    projectId: 'eprovide-fa8a0',
-    storageBucket: 'eprovide-fa8a0.appspot.com',
-    androidClientId: '483329949094-4eimij4k0b769qf8eatvmain3j4sje1m.apps.googleusercontent.com',
-    iosClientId: '483329949094-caqtb8ej3b0n29ifvturgi1gdnb4arik.apps.googleusercontent.com',
-    iosBundleId: 'in.skykraft.SkyKraftUserApp',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyC0xF39u8Tj7IbGd84qJUwVGXCC50IeQuo',
-    appId: '1:167742209744:web:904f166cf0a60c8d69e8d5',
+    apiKey: 'AIzaSyCPXH3iGabrDu7qDyJsOYUQ73Kr0ZOJgTs',
+    appId: '1:167742209744:ios:cd5cef83bd99083669e8d5',
     messagingSenderId: '167742209744',
     projectId: 'skykraft-e7fb7',
-    authDomain: 'skykraft-e7fb7.firebaseapp.com',
     storageBucket: 'skykraft-e7fb7.appspot.com',
-    measurementId: 'G-9JXMKRY2DK',
+    androidClientId: '167742209744-3g3bp5f6vu6l0h67c132a8rjf56o60kr.apps.googleusercontent.com',
+    iosClientId: '167742209744-ifl548aph02kiqh8p3kc3csf1kt01uvl.apps.googleusercontent.com',
+    iosBundleId: 'in.skykraft.SkyKraftUserApp',
   );
-
 }

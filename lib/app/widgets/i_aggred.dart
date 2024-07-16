@@ -8,36 +8,41 @@ Widget privacyPolicyLinkAndTermsOfService() {
     alignment: Alignment.center,
     padding: const EdgeInsets.all(10),
     child: Center(
-        child: Text.rich(TextSpan(
-            text: 'By continuing, you agree to our ',
-            style: const TextStyle(fontSize: 14, color: Colors.black),
-            children: <TextSpan>[
-          TextSpan(
-              text: 'Terms of Service',
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.black,
-                decoration: TextDecoration.underline,
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  Get.toNamed(Routes.TERMS_AND_CONDITIONS);
-                }),
-          TextSpan(
-              text: ' and ',
-              style: const TextStyle(fontSize: 14, color: Colors.black),
-              children: <TextSpan>[
-                TextSpan(
-                    text: 'Privacy Policy',
-                    style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        decoration: TextDecoration.underline),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Get.toNamed(Routes.PRIVACY_POLICY);
-                      })
-              ])
-        ]))),
+      child: Text.rich(
+        textAlign: TextAlign.center,
+        TextSpan(
+          text: 'By continuing, you agree to our ',
+          style: const TextStyle(fontSize: 12, color: Colors.black),
+          children: <TextSpan>[
+            TextSpan(
+                text: 'Terms of Service',
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: Colors.black,
+                  decoration: TextDecoration.underline,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Get.toNamed(Routes.TERMS_AND_CONDITIONS);
+                  }),
+            TextSpan(
+                text: ' and ',
+                style: const TextStyle(fontSize: 12, color: Colors.black),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: 'Privacy Policy',
+                      style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.black,
+                          decoration: TextDecoration.underline),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Get.toNamed(Routes.PRIVACY_POLICY);
+                        })
+                ])
+          ],
+        ),
+      ),
+    ),
   );
 }
