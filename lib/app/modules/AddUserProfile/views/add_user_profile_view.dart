@@ -33,7 +33,7 @@ class AddUserProfileView extends GetView<AddUserProfileController> {
               children: [
                 //  set user role - dron pilot or client
                 const Text(
-                  'Select Your User Avatar, and Others details Please!',
+                  'Add Bio',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

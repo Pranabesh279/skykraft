@@ -30,6 +30,7 @@ abstract class Routes {
   static const CHAT_ROOM = _Paths.CHAT_ROOM;
   static const MEDIAVIEWER = _Paths.MEDIAVIEWER;
   static const VIEW_CHAT = _Paths.VIEW_CHAT;
+  static const GALLARY = _Paths.GALLARY;
 }
 
 abstract class _Paths {
@@ -62,4 +63,5 @@ abstract class _Paths {
   static const CHAT_ROOM = '/chat-room';
   static const MEDIAVIEWER = '/mediaviewer';
   static const VIEW_CHAT = '/view-chat';
+  static const GALLARY = '/gallary';
 }

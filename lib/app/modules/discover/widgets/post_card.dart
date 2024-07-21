@@ -4,8 +4,14 @@ import 'dart:developer';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter_reaction_button/flutter_reaction_button.dart';
+import 'package:get/get.dart';
+import 'package:skycraft/app/constants/theme_data.dart';
 import 'package:skycraft/app/models/posts/post_data_model.dart';
+import 'package:skycraft/app/modules/mediaviewer/bindings/mediaviewer_binding.dart';
+import 'package:skycraft/app/modules/mediaviewer/views/mediaviewer_view.dart';
 import 'package:skycraft/app/modules/uploadMedia/widgets/video_player_network.dart';
+import 'package:skycraft/app/providers/auth_provider.dart';
+import 'package:skycraft/app/providers/post_provider.dart';
 import 'package:skycraft/app/widgets/profile_image.dart';
 
 class PostCard extends StatelessWidget {
@@ -73,47 +79,112 @@ class PostCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          SizedBox(child: buildImage(post.url ?? "", post.fileType ?? "")),
+          Container(
+              color: Colors.black,
+              constraints: const BoxConstraints(
+                maxHeight: 300,
+                maxWidth: double.infinity,
+              ),
+              child: buildImage(post.url ?? "", post.fileType ?? "")),
           const SizedBox(height: 10),
           Row(
             children: [
-              ReactionButton<String>(
-                boxPadding: const EdgeInsets.all(10),
-                itemsSpacing: 10,
-                onReactionChanged: (Reaction<String>? reaction) {
-                  debugPrint('Selected value: ${reaction?.value}');
-                },
-                reactions: <Reaction<String>>[...reactions],
-                selectedReaction: const Reaction<String>(
-                  value: 'like',
-                  icon: Icon(
-                    Icons.thumb_up,
-                    color: Colors.blue,
-                  ),
-                ),
-                itemSize: const Size(20, 20),
-                // child: Container(
-                //   padding: const EdgeInsets.all(10),
-                //   child: const Text('Like'),
-                // ),
+              StreamBuilder(
+                  stream: Get.find<PostProvider>().isLiked(
+                      post.id!, Get.find<AuthProvider>().userModel.value!.uid!),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const SizedBox();
+                    }
+                    return IconButton(
+                      onPressed: () {
+                        snapshot.data == true
+                            ? Get.find<PostProvider>().unlikePost(
+                                post.id!,
+                                Get.find<AuthProvider>().userModel.value!.uid!,
+                              )
+                            : Get.find<PostProvider>().likePost(
+                                post.id!,
+                                Get.find<AuthProvider>().userModel.value!.uid!,
+                              );
+                      },
+                      icon: snapshot.data == true
+                          ? const Icon(
+                              Icons.thumb_up,
+                              color: kPrimary,
+                            )
+                          : const Icon(
+                              Icons.thumb_up_off_alt_outlined,
+                              color: Colors.grey,
+                            ),
+                    );
+                  }),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: StreamBuilder(
+                    stream: Get.find<PostProvider>().getLikesCount(post.id!),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const SizedBox();
+                      }
+                      return Text(
+                        '${snapshot.data}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      );
+                    }),
               ),
-              const Text(' ${0}'),
+
+              // comment button
+              IconButton(
+                onPressed: () {
+                  Get.to(const MediaviewerView(),
+                      binding: MediaviewerBinding(
+                        post: post,
+                      ));
+                },
+                icon: const Icon(
+                  Icons.comment,
+                  color: Colors.grey,
+                ),
+              ),
               const Spacer(),
-              Column(
-                children: [
-                  const Text('Buy Now'),
-                  Row(
-                    children: [
-                      Image.asset(
-                        'assets/icons/coins.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                      Text(' ${post.price}'),
-                    ],
-                  )
-                ],
-              )
+              // save post button to gallery
+              StreamBuilder(
+                  builder: (context, snapshot) {
+                    return IconButton(
+                        onPressed: () {
+                          snapshot.data == true
+                              ? Get.find<PostProvider>()
+                                  .removePostFromUserGallery(
+                                  post.id!,
+                                  Get.find<AuthProvider>()
+                                      .userModel
+                                      .value!
+                                      .uid!,
+                                )
+                              : Get.find<PostProvider>().savePostToUserGallery(
+                                  post.id!,
+                                  Get.find<AuthProvider>()
+                                      .userModel
+                                      .value!
+                                      .uid!,
+                                );
+                        },
+                        icon: snapshot.data == true
+                            ? const Icon(
+                                Icons.bookmark,
+                                color: kPrimary,
+                              )
+                            : const Icon(
+                                Icons.bookmark_border,
+                                color: Colors.grey,
+                              ));
+                  },
+                  stream: Get.find<PostProvider>().isPostInUserGallery(
+                      post.id!, Get.find<AuthProvider>().userModel.value!.uid!))
             ],
           ),
         ],
@@ -143,20 +214,23 @@ class PostCard extends StatelessWidget {
         builder: (BuildContext context, AsyncSnapshot<ui.Image> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             log('height: ${snapshot.data!.height} width: ${snapshot.data!.width}');
-            return Column(
-              children: [
-                Text(
-                  'height: ${snapshot.data!.height} width: ${snapshot.data!.width}',
-                ),
-                SizedBox(
-                  height: snapshot.data!.height.toDouble(),
-                  width: snapshot.data!.width.toDouble(),
-                  child: Image.network(url),
-                ),
-              ],
+            return Container(
+              constraints: BoxConstraints(
+                maxHeight: snapshot.data!.height.toDouble(),
+                maxWidth: double.infinity,
+              ),
+              child: SizedBox(
+                height: snapshot.data!.height.toDouble(),
+                width: snapshot.data!.width.toDouble(),
+                child: Image.network(url),
+              ),
             );
           } else {
-            return const SizedBox();
+            return Container(
+              height: 200,
+              width: double.infinity,
+              color: Colors.grey,
+            );
           }
         },
       );
@@ -172,11 +246,10 @@ class PostCard extends StatelessWidget {
   List<Reaction<String>> get reactions => <Reaction<String>>[
         const Reaction<String>(
           value: 'like',
-          icon: Icon(Icons.thumb_up),
-        ),
-        const Reaction<String>(
-          value: 'love',
-          icon: Icon(Icons.favorite),
+          icon: Icon(
+            Icons.thumb_up_off_alt_outlined,
+            size: 18,
+          ),
         ),
       ];
 }

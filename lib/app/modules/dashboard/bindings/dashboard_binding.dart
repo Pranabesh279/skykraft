@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:skycraft/app/modules/gallary/bindings/gallary_binding.dart';
 import 'package:skycraft/app/modules/home/controllers/home_controller.dart';
 import 'package:skycraft/app/modules/profile/controllers/profile_controller.dart';
 
@@ -9,6 +10,9 @@ class DashboardBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<DashboardController>(
       () => DashboardController(),
+    );
+    Get.lazyPut<GallaryBinding>(
+      () => GallaryBinding(),
     );
   }
 }

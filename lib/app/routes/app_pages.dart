@@ -30,6 +30,8 @@ import '../modules/discover/bindings/discover_binding.dart';
 import '../modules/discover/views/discover_view.dart';
 import '../modules/edit_profile/bindings/edit_profile_binding.dart';
 import '../modules/edit_profile/views/edit_profile_view.dart';
+import '../modules/gallary/bindings/gallary_binding.dart';
+import '../modules/gallary/views/gallary_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/locationPermission/bindings/location_permission_binding.dart';
 import '../modules/locationPermission/views/location_permission_view.dart';
@@ -72,7 +74,8 @@ class AppPages {
           DashboardBinding(),
           HomeBinding(),
           ProfileBinding(),
-          DiscoverBinding()
+          DiscoverBinding(),
+          GallaryBinding()
         ]),
     GetPage(
       name: _Paths.DISCOVER,
@@ -183,6 +186,11 @@ class AppPages {
       name: _Paths.VIEW_CHAT,
       page: () => const ViewChatView(),
       binding: ViewChatBinding(),
+    ),
+    GetPage(
+      name: _Paths.GALLARY,
+      page: () => const GallaryView(),
+      binding: GallaryBinding(),
     ),
   ];
 }

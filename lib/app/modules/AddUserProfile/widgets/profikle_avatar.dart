@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:skycraft/app/constants/theme_data.dart';
 
 class ProfileAvatar extends StatelessWidget {
@@ -28,33 +29,53 @@ class ProfileAvatar extends StatelessWidget {
             width: 0.1,
           ),
         ),
-        child: CircleAvatar(
-          backgroundColor: kBackgroundColor,
-          radius: 40,
-          child: ClipOval(
-            child: imageFile != null
-                ? Image.file(
-                    imageFile!,
-                    fit: BoxFit.cover,
-                    width: 80,
-                    height: 80,
-                  )
-                : imageUrl != null
-                    ? Image.network(
-                        imageUrl!,
+        child: Stack(
+          children: [
+            CircleAvatar(
+              backgroundColor: kSeconderyBackgroundColor,
+              radius: 40,
+              child: ClipOval(
+                child: imageFile != null
+                    ? Image.file(
+                        imageFile!,
                         fit: BoxFit.cover,
                         width: 80,
                         height: 80,
                       )
-                    : const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.person_outlined,
-                          size: 40,
-                          color: kPrimary,
-                        ),
-                      ),
-          ),
+                    : imageUrl != null
+                        ? Image.network(
+                            imageUrl!,
+                            fit: BoxFit.cover,
+                            width: 80,
+                            height: 80,
+                          )
+                        : SvgPicture.asset(
+                            'assets/icons/ei_user.svg',
+                            width: 40,
+                            height: 40,
+                          ),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: kPrimary,
+                ),
+                child: const Center(
+                  child: Icon(
+                    Icons.camera_alt,
+                    color: kWhiteColor,
+                    size: 12,
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

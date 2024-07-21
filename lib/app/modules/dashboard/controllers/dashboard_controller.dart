@@ -6,6 +6,10 @@ import 'package:get/get.dart';
 import 'package:flutter/foundation.dart' as foundation;
 import 'package:location/location.dart';
 import 'package:skycraft/app/models/auth/user_model.dart';
+import 'package:skycraft/app/modules/discover/controllers/discover_controller.dart';
+import 'package:skycraft/app/modules/gallary/controllers/gallary_controller.dart';
+import 'package:skycraft/app/modules/home/controllers/home_controller.dart';
+import 'package:skycraft/app/modules/profile/controllers/profile_controller.dart';
 import 'package:skycraft/app/providers/auth_provider.dart';
 
 class DashboardController extends GetxController {
@@ -35,7 +39,7 @@ class DashboardController extends GetxController {
   List<String> icons = [
     'assets/icons/tabler_home.png',
     'assets/icons/iconamoon_discover-light.png',
-    'assets/icons/typcn_flash-outline.png',
+    'assets/icons/icons8-bookmark-50.png',
     'assets/icons/gg_profile.png',
   ];
   final List<GetPage> _getPages = [];
@@ -43,6 +47,21 @@ class DashboardController extends GetxController {
 
   void changePage(int index) {
     selectedIndex.value = index;
+    if (index == 0) {
+      Get.isRegistered<DiscoverController>()
+          ? null
+          : Get.put(DiscoverController());
+    } else if (index == 1) {
+      Get.isRegistered<HomeController>() ? null : Get.put(HomeController());
+    } else if (index == 2) {
+      Get.isRegistered<GallaryController>()
+          ? null
+          : Get.put(GallaryController());
+    } else if (index == 3) {
+      Get.isRegistered<ProfileController>()
+          ? null
+          : Get.put(ProfileController());
+    }
   }
 
   String onGenerateIcon(int index) {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const Color kPrimaryColor = Color(0xFF191919);
 const Color kBackgroundColor = Color(0xFFFFFFFF);
+const Color kSeconderyBackgroundColor = Color(0xFFF7F8FA);
 const Color kSecondaryColor = Color(0xff292929);
 const Color kAccentColor = Color(0xFF191919);
 const Color kTextColor = Color(0xff292929);
@@ -58,25 +59,21 @@ ThemeData lightTheme(context) => ThemeData(
           color: kTitleColor,
           fontSize: 24,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Circular Std',
         ),
         displayMedium: TextStyle(
           color: kTitleColor,
           fontSize: 22,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Circular Std',
         ),
         displaySmall: TextStyle(
           color: kTitleColor,
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Circular Std',
         ),
         headlineMedium: TextStyle(
           color: kTitleColor,
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          fontFamily: 'Circular Std',
         ),
         headlineSmall: TextStyle(
           color: kTitleColor,
